@@ -1,0 +1,7 @@
+if [ -d $DOTFILES/$1 ]; then
+    cd $DOTFILES/$1; 
+elif [ -f $DOTFILES/$1 ]; then
+    vim $DOTFILES/$1; 
+fi;
+
+# cd $DOTFILES/$1;

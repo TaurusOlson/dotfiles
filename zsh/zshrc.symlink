@@ -1,0 +1,25 @@
+# shortcut to this dotfiles path is $ZSH
+export ZSH=$HOME/.dotfiles
+
+# your project folder that we can `p [tab]` to
+export PROJECTS=~/Programming
+
+# source every .zsh file in this rep
+for config_file ($ZSH/**/*.zsh) source $config_file
+
+alias sz="source $HOME/.zshrc"
+
+# use .profile for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.profile ]]
+then
+  source ~/.profile
+  echo "Sourced ~/.profile"
+fi
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# load every completion after autocomplete loads
+for config_file ($ZSH/**/completion.zsh) source $config_file

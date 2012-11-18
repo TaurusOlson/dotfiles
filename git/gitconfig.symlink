@@ -1,0 +1,59 @@
+# Sample gitconfig
+#
+# You probably want to change the [user] section here since you are not me.
+
+[hub]
+        protocol = https
+[user]
+        name = Taurus Olson
+        email = taurusolson@gmail.com
+[github]
+        user = Taurus Olson
+[color "branch"]
+        rebase = false
+[credential]
+        helper = osxkeychain
+[alias]
+        co = checkout
+        ci = commit
+        st = status
+        br = branch
+        unstage = reset HEAD
+        sum = log --format='* %C(yellow)%h%C(reset) - %s %C(green)%d'
+        hist = log --pretty=format:'%C(yellow)%h %C(blue)%ad %Creset| %s%C(red)%d %C(green)[%an]' --graph --date=short
+        type = cat-file -t
+        dump = cat-file -p
+        last = log --max-count=1
+        untrack = rm -r cached
+        promote = !$ZSH/bin/git-promote
+        wtf     = !$ZSH/bin/git-wtf
+
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[color "branch"]
+        current = yellow reverse
+        local   = yellow
+        remote  = green
+[color "diff"]
+        meta = yellow
+        frag = magenta
+        old  = red
+        new  = green
+[color "diff"]
+        added     = yellow
+        changed   = green
+        untracked = cyan
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+[apply]
+        whitespace = nowarn
+[mergetool]
+        keepBackup = false
+[difftool]
+        prompt = false
+[help]
+        autocorrect = 1
