@@ -1,6 +1,4 @@
-# Sample gitconfig
-#
-# You probably want to change the [user] section here since you are not me.
+# Taurus Olson's .gitconfig
 
 [hub]
         protocol = https
@@ -12,7 +10,7 @@
 [color "branch"]
         rebase = false
 [credential]
-        helper = osxkeychain
+	helper = osxkeychain
 [alias]
         co = checkout
         ci = commit
@@ -21,13 +19,7 @@
         unstage = reset HEAD
         sum = log --format='* %C(yellow)%h%C(reset) - %s %C(green)%d'
         hist = log --pretty=format:'%C(yellow)%h %C(blue)%ad %Creset| %s%C(red)%d %C(green)[%an]' --graph --date=short
-        type = cat-file -t
-        dump = cat-file -p
-        last = log --max-count=1
         untrack = rm -r cached
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-
 [color]
         diff = auto
         status = auto
