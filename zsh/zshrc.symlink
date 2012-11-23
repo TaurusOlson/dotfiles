@@ -17,6 +17,9 @@ then
   echo "Sourced ~/.profile"
 fi
 
+# Add $ZSH/bin to $PATH
+export PATH=$PATH:$ZSH/bin
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
