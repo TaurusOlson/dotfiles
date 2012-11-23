@@ -4,7 +4,7 @@ set anti
 set lines=999 columns=84
 set guioptions=egmrt
 
-set guifont=Menlo:h13
+set guifont=Menlo:h14
 " Command + t to :CommandT
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
