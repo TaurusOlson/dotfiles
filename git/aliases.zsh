@@ -13,7 +13,8 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C
 alias gh="git hist"
 alias gp='git push'
 alias gd='git diff'
-alias gci='git commit -m'
+alias gci='git commit'
+alias gcm='git commit -m'
 alias gca='git commit --amend'
 alias ga='git add'
 alias go='git checkout'
