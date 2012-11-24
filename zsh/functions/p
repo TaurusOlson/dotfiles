@@ -1,1 +1,5 @@
-cd $PROJECTS/$1;
+if [ -d $PROJECTS/$1 ]; then
+    cd $PROJECTS/$1; 
+elif [ -f $PROJECTS/$1 ]; then
+    vim $PROJECTS/$1; 
+fi;
