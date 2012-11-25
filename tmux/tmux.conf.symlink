@@ -6,9 +6,6 @@ bind C-a send-prefix
 set -g default-shell /bin/zsh
 set -g status-keys vi
 
-# Reload the config.
-bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
-
 # Saner splitting.
 bind v split-window -h
 bind s split-window -v
@@ -20,16 +17,10 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
-# DVTM style pane selection
-bind 1 select-pane -t 1
-bind 2 select-pane -t 2
-bind 3 select-pane -t 3
-bind 4 select-pane -t 4
-bind 5 select-pane -t 5
-bind 6 select-pane -t 6
-bind 7 select-pane -t 7
-bind 8 select-pane -t 8
-bind 9 select-pane -t 9
+set -g main-pane-width 260
+bind M select-layout main-vertical
+bind E select-layout even-horizontal
+
 
 # Pane resizing
 bind -r C-h resize-pane -L 5
@@ -77,4 +68,7 @@ setw -g automatic-rename on
 bind c new-window
 bind C-a last-window
 bind , command-prompt "rename-window '%%'"
+
+# Reload the config.
+bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
 
