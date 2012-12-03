@@ -1,0 +1,43 @@
+" -----------------------------------------------------------------------------
+"      ________  ____   ____ .___     _____    __________  _________   
+"     /  _____/  \   \ /   / |   |   /     \   \______   \ \_   ___ \  
+"    /   \  ___   \   Y   /  |   |  /  \ /  \   |       _/ /    \  \/  
+"    \    \_\  \   \     /   |   | /    Y    \  |    |   \ \     \____ 
+" /\  \______  /    \___/    |___| \____|__  /  |____|_  /  \______  / 
+" \/         \/                            \/          \/          \/  
+"  
+" -----------------------------------------------------------------------------
+
+if has("gui_tunning")
+    source ~/.vim/taurus/powerline.vim
+    let g:Powerline_loaded = 0
+endif
+
+" OPTIONS -----------------------------------------------------------------{{{1
+set laststatus=2
+set bsdir=last
+set cd=$PATH,$HOME
+" set lines=44 columns=120
+
+
+" COLORS ------------------------------------------------------------------{{{1
+" set background=light
+colorscheme bclear
+hi FoldColumn guifg=greenyellow guibg=#202020
+
+
+" GUI ---------------------------------------------------------------------{{{1
+set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
+set fuoptions=maxvert,maxhorz
+    set guifont=Menlo_Regular_for_Powerline:h12
+
+macmenu &File.New\ Tab key=<nop>
+map <D-t> :CommandT<CR>
+
+macmenu &Tools.Make key=<nop>
+map <D-b> :CommandTBuffer<CR>
+
+macmenu &Edit.Find.Find\ Next key=<nop>
+map <D-g> :CommandTTag<CR>
+
+" vim: fdm=marker:

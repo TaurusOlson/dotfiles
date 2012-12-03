@@ -1,0 +1,47 @@
+"==============================================================================
+" My personal vim configuration file           
+"
+" Maintainer:   Taurus Olson                   
+"==============================================================================
+
+set nocompatible
+filetype off
+
+" PATHOGEN ================================================================{{{1
+
+call pathogen#infect()
+call pathogen#helptags()
+
+" VUNDLE =================================================================={{{1
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle "gmarik/vundle"
+
+" CUSTOM =================================================================={{{1
+
+source ~/.vim/taurus/options.vim
+source ~/.vim/taurus/mappings.vim
+source ~/.vim/taurus/abbreviations.vim
+source ~/.vim/taurus/statusline.vim
+source ~/.vim/taurus/autocmds.vim
+source ~/.vim/taurus/functions.vim
+
+" PLUGINS ================================================================={{{1
+
+source ~/.vim/vendor/mru.vim
+source ~/.vim/vendor/commentary.vim
+source ~/.vim/vendor/markdown.vim
+source ~/.vim/vendor/snipmate.vim
+source ~/.vim/vendor/gundo.vim
+source ~/.vim/vendor/taglist.vim
+source ~/.vim/vendor/fugitive.vim
+source ~/.vim/vendor/surround.vim
+source ~/.vim/vendor/git.vim
+source ~/.vim/vendor/repeat.vim
+source ~/.vim/vendor/align.vim
+source ~/.vim/vendor/vimwiki.vim
+source ~/.vim/vendor/operator-user.vim
+
+" vim:set fdm=marker:
+
