@@ -1,39 +1,26 @@
-#!/bin/sh
-IFS=$'\n'
+#!/bin/bash
 
-# Copies a few key files to a mounted partition.
-#
-# I use Time Machine for backups, but I also wanted to build out an
-# offsite backup with my critical nonreplaceable data (photos, documents,
-# etc). Since it's mobile, encryption is a plus (which Time Machine
-# doesn't easily do). I create an encrypted sparsebundle on a tiny USB
-# drive and do it to it.
+set -e
 
+function usage() {
+    cat << EOF
+$(basename $0) - Backup a directory or a file.
 
-# Your sparsebundle. I named mine "fuckplanets" because really, fuck planets.
-sparsebundle="/Volumes/fuckplanets/backup.sparsebundle"
+Usage:
+    $(basename $0) <filename> [<newfilename>]
+EOF
+}
 
-# Your destination. My sparsebundle mounts to "backup".
-backup_location="/Volumes/backup"
+function get_current_time() { date +%d%m%y_%H%M; }
+function tar_file() { tar czvf $2_$(get_current_time).tar.gz $1; }
+function backup() { tar_file $1 $2 && echo -e "\033[31m* $1 -> $2_$(get_current_time).tar.gz"; }
 
-# Directories to backup. Recursive, implied home (~) location.
-directories=(
-  Code
-  Documents
-  "Library/Application Support/Adium 2.0"
-  Movies
-  Music
-  Pictures
-)
+# Display help 
+[ $# -lt 1 ] || [ $# -gt 2 ] && usage && exit 0
 
+# Backup the directory or the file with the same name
+[ $# -eq 1 ] && [ -e $1 ] && backup $1 $1 && exit 0
 
+# Backup the directory or the file with a new name
+[ $# -eq 2 ] && [ -e $1 ] && backup $1 $2 && exit 0
 
-hdiutil attach -noverify $sparsebundle
-
-for directory in ${directories[@]}
-  do
-    rsync -avh --progress --delete ~/$directory $backup_location
-done
-
-hdiutil detach $backup_location
-diskutil eject fuckplanets
