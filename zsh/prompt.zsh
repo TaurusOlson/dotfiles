@@ -49,10 +49,6 @@ rb_prompt(){
   fi
 }
 
-vw_prompt() {
-
-}
-
 # This keeps the number of todos always available the right hand side of my
 # command line. I filter it to only count those tagged as "+next", so it's more
 # of a motivation to clear out the list.

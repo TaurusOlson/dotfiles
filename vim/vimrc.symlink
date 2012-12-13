@@ -42,6 +42,8 @@ source ~/.vim/vendor/repeat.vim
 source ~/.vim/vendor/align.vim
 source ~/.vim/vendor/vimwiki.vim
 source ~/.vim/vendor/operator-user.vim
+source ~/.vim/vendor/ctrlp.vim
+source ~/.vim/vendor/ack.vim
+source ~/.vim/vendor/skybison.vim
 
 " vim:set fdm=marker:
-

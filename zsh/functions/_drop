@@ -1,0 +1,3 @@
+#compdef drop
+_files -W $DROP -/
+
