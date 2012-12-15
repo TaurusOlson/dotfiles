@@ -1,0 +1,80 @@
+#!/bin/bash
+
+
+# The url of the emacs configs
+EMACS_LIVE_URL=https://github.com/overtone/emacs-live
+EMACS_ESK_URL=https://github.com/technomancy/emacs-starter-kit
+EMACS_PRELUDE_URL=https://github.com/bbatsov/prelude
+
+# The git repositories
+EMACS_LIVE_REPO=git://github.com/overtone/emacs-live.git
+EMACS_ESK_REPO=git://github.com/technomancy/emacs-starter-kit.git
+EMACS_PRELUDE_REPO=git://github.com/bbatsov/prelude.git
+
+# Colors related to the emacs configs
+EMACS_LIVE_COLOR="\033[35m"    # purple
+EMACS_ESK_COLOR="\033[36m"     # cyan
+EMACS_PRELUDE_COLOR="\033[33m" # yellow
+DEFAULT="\033[0m"
+
+
+function usage () {
+    echo -e "Usage: $(basename $0) <emacs-config>
+
+Available emacs configs:
+${EMACS_LIVE_COLOR}- live (Emacs Live)${DEFAULT}
+${EMACS_ESK_COLOR}- esk (Emacs Starter Kit)${DEFAULT}
+${EMACS_PRELUDE_COLOR}- prelude (Emacs prelude)${DEFAULT}"
+}
+
+# Show help message
+[ $# -eq 0 ] && usage && exit 1
+
+
+function install-emacs-from-github () {
+    now=$(date "+%d-%m-%y-%H:%M")
+    [ -d ~/.emacs.d ] && mv ~/.emacs.d ~/emacs.d.backup-$now &&\
+    echo -e $2"\nCreated a backup for your previous ~/.emacs.d\n"$DEFAULT
+    git clone $1 ~/.emacs.d
+}
+
+function congratulate () {
+    local _name=$1
+    local _color=$2
+    local _url=$3
+    echo -e "
+${_color}Congratulations you've just installed
+
+\t\t${_name}
+
+Enjoy a brand new Emacs configuration and
+prepare yourself to a pleasant trip to the Elisp land.
+
+\t\t\033[31mM-x start-hacking${_color}
+
+If you want more information head over to:
+${_url}${DEFAULT}"
+}
+
+
+if [ $# -eq 1 ]; then
+    case $1 in
+        live|emacs-live)
+            install-emacs-from-github $EMACS_LIVE_REPO $EMACS_LIVE_COLOR
+            congratulate "-*- Emacs Live -*-" $EMACS_LIVE_COLOR $EMACS_LIVE_URL
+            ;;
+        esk|emacs-starter-kit|starter-kit)
+            install-emacs-from-github $EMACS_ESK_REPO $EMACS_ESK_COLOR
+            congratulate "~~~ Emacs Starter Kit ~~~" $EMACS_ESK_COLOR $EMACS_ESK_URL
+            ;;
+        prelude|emacs-prelude)
+            install-emacs-from-github $EMACS_PRELUDE_REPO $EMACS_PRELUDE_COLOR
+            congratulate "...Emacs Prelude..." $EMACS_PRELUDE_COLOR $EMACS_PRELUDE_URL
+            ;;
+        *)
+            usage
+            ;;
+    esac
+    else
+    usage
+fi
