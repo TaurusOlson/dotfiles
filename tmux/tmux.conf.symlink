@@ -36,20 +36,18 @@ set -g default-terminal "screen-256color"
 set -g status-left-length 32
 set -g status-right-length 150
 set -g status-interval 5
-set -g status-fg red
+# set -g status-fg red
 set -g status-bg default
 
 # window title
 setw -g automatic-rename off
 set -g set-titles on
 set -g set-titles-string '[#S:#I.#P] #W'
-set -g status-right '#[fg=white]#H | #[default]%H:%M, %d/%m/%y'
+set -g status-left '#[fg=blue]#S ::'
+set -g status-right '#[fg=blue]#H :: #[fg=green]%H:%M  %d.%m.%y'
 
 setw -g window-status-format '#[fg=green]#I #W '
-setw -g window-status-current-format '#[fg=black]#[bg=colour9] #I #W '
-setw -g window-status-current-fg black
-setw -g window-status-current-bg white
-setw -g window-status-current-attr reverse
+setw -g window-status-current-format '#[fg=colour9,bg=default]#I #W '
 set -g window-status-activity-attr bold
 
 set -g pane-border-fg colour245
