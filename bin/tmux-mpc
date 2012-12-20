@@ -1,3 +1,10 @@
-status=$(mpc status | head -1 | awk -F "-" '{print $2}')
+#!/bin/bash
 
-[ -n "$status" ] && echo "  #[fg=blue]♫ ::#[fg=green]$status"
+song=$(mpc current)
+if [[ -n $(mpc status | grep "\[playing\]") ]]; then
+    status_color=#[fg=red]
+else 
+    status_color=#[fg=green]
+fi
+
+[ -n "$song" ] && echo "  #[fg=blue]♫ :: $status_color$song"
