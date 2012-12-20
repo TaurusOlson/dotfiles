@@ -26,3 +26,6 @@ compinit
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file
+
+. `brew --prefix`/etc/profile.d/z.sh
+
