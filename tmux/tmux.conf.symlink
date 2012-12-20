@@ -44,7 +44,7 @@ setw -g automatic-rename off
 set -g set-titles on
 set -g set-titles-string '[#S:#I.#P] #W'
 set -g status-left '#[fg=blue]#S ::'
-set -g status-right '#[fg=blue]#H :: #[fg=green]%H:%M  %d.%m.%y'
+set -g status-right '#[fg=blue]#H :: #[fg=green]%H:%M  %d.%m.%y#(tmux-mpc)'
 
 setw -g window-status-format '#[fg=green]#I #W '
 setw -g window-status-current-format '#[fg=colour9,bg=default]#I #W '

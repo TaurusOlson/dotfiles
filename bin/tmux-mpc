@@ -1,0 +1,3 @@
+status=$(mpc status | head -1 | awk -F "-" '{print $2}')
+
+[ -n "$status" ] && echo "  #[fg=blue]♫ ::#[fg=green]$status"
