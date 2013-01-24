@@ -1,0 +1,7 @@
+if [ -d $NATURE_OF_CODE/$1 ]
+then
+    cd $NATURE_OF_CODE/$1;
+elif [ -f $NATURE_OF_CODE/$1 ]
+then
+    $EDITOR $NATURE_OF_CODE/$1;
+fi

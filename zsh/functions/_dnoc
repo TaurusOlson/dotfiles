@@ -1,0 +1,4 @@
+#compdef dnoc
+_files -W $NATURE_OF_CODE
+
+
