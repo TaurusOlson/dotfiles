@@ -1,4 +1,12 @@
 #!/bin/bash
 
+function usage () {
+    cat <<EOF
+Usage: $(basename $0) [session-name]
+
+EOF
+}
+[ $# -eq 0 ] && usage && exit 0
+
 [ $# -eq 1 ] && tmux new-session -s $1 && exit 0
 

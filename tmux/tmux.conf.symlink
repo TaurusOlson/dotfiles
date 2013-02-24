@@ -47,7 +47,7 @@ set -g status-left '#[fg=blue]#S ::'
 set -g status-right '#[fg=blue]#H :: #[fg=green]%H:%M  %d.%m.%y#(tmux-mpc)'
 
 setw -g window-status-format '#[fg=green]#I #W '
-setw -g window-status-current-format '#[fg=colour9,bg=default]#I #W '
+setw -g window-status-current-format '#[fg=colour9,bg=default][#I #W]'
 set -g window-status-activity-attr bold
 
 set -g pane-border-fg colour245
