@@ -42,12 +42,12 @@ set -g status-bg default
 # window title
 setw -g automatic-rename off
 set -g set-titles on
-set -g set-titles-string '[#S:#I.#P] #W'
+set -g set-titles-string '@#T [#S:#I.#P] #W'
 set -g status-left '#[fg=blue]#S ::'
 set -g status-right '#[fg=blue]#H :: #[fg=green]%H:%M  %d.%m.%y#(tmux-mpc)'
 
-setw -g window-status-format '#[fg=green]#I #W '
-setw -g window-status-current-format '#[fg=colour9,bg=default][#I #W]'
+setw -g window-status-format '#[fg=green]#I #W#F'
+setw -g window-status-current-format '#[fg=colour9,bg=default][#I #W:#P]'
 set -g window-status-activity-attr bold
 
 set -g pane-border-fg colour245
@@ -62,6 +62,10 @@ set -g visual-activity off
 
 # Autorename sanely.
 setw -g automatic-rename on
+
+# Kill
+bind X kill-window
+bind Q kill-session
 
 # Better name management
 bind c new-window

@@ -11,11 +11,7 @@ alias sz="source $HOME/.zshrc"
 
 # use .profile for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
-if [[ -a ~/.profile ]]
-then
-  source ~/.profile
-  echo "Sourced ~/.profile"
-fi
+[ -e ~/.profile ] && source ~/.profile
 
 # Add $ZSH/bin to $PATH
 export PATH=$PATH:$ZSH/bin
