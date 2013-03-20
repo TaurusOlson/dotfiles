@@ -1,0 +1,4 @@
+function split-string() {
+    SEP=${2:-:}
+    echo $1 | awk -F "$SEP" '{for (i=1; i <= NF; i++) print $i}'
+}
