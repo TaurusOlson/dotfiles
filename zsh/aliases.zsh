@@ -13,4 +13,4 @@ alias 9='cd +9'
 
 alias lsd='ls -l | grep ^d'
 alias ls.='ls -d .*'
-
+alias sv="source /usr/local/bin/virtualenvwrapper.sh"
