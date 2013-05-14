@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import os
+import sys
+import time
+
+cmd =  " ".join(sys.argv[1:])
+clear = ['clear','cls'][os.name == 'nt']
+
+while True:
+    try:
+        os.system(clear)
+        os.system(cmd)
+        time.sleep(1)
+    except KeyboardInterrupt:
+        break
