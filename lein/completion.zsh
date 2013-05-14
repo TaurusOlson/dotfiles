@@ -24,4 +24,4 @@ function _lein_commands() {
     return ret
 }
 
-compdef _lein_commands lein
+# compdef _lein_commands lein
