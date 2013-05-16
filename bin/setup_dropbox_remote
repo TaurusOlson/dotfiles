@@ -1,0 +1,43 @@
+#!/bin/bash
+
+
+REPO_PATH="$HOME/Dropbox/repositories"
+ESC="\033["
+FG_PURPLE=${ESC}35m
+FG_CYAN=${ESC}36m
+DEFAULT=${ESC}0m
+
+
+make_git_bare_repo () {
+    NEW_REPO=$REPO_PATH/$1
+    mkdir -p $NEW_REPO
+    git --bare init $NEW_REPO
+}
+
+
+usage () {
+    cat <<USAGE 
+$(basename $0) - Make a git bare repository in your Dropbox and add a remote repository
+
+Usage:
+    $(basename $0)
+USAGE
+exit
+}
+
+if [[ $# -eq 0 ]]; then
+    current_repo="$(basename $PWD).git"
+    make_git_bare_repo ${current_repo}
+    git remote add dropbox $REPO_PATH/${current_repo}
+
+    echo -e $FG_PURPLE"Added new remote:"
+    echo -e $FG_CYAN"    dropbox"
+    echo -e $FG_PURPLE"Now push with:"
+    echo -e $FG_CYAN"    git push dropbox <branch>"
+    echo -e $DEFAULT
+else
+    usage 
+fi
+
+
+

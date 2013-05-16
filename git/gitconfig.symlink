@@ -25,6 +25,8 @@
         status = auto
         branch = auto
         ui = true
+        type = cat-file -t
+        dump = cat-file -p
 [color "branch"]
         current = yellow reverse
         local   = yellow

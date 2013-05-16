@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+function usage () {
+    cat <<EOF
+$(basename $0) - mvim server on steroids
+
+usage: $(basename $0) <servername> [file]
+
+EOF
+}
+
+if [[ $# -eq 0 ]]; then
+    usage
+    echo "Available servers:"
+    mvim --serverlist && exit 0
+elif [[ $# -eq 1 ]]; then
+    mvim --servername $1 --remote-tab-silent ./scratch.txt
+elif [[ $# -gt 1 ]]; then
+    servername=$1
+    shift
+    files="$@"
+    mvim --servername $servername --remote-tab-silent $files
+fi
+
+
+# mvim --servername flagTool --remote-send "<ESC>:ls<CR>"
+

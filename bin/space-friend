@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+
+RED="\033[31m"
+CYAN="\033[0;36m"
+DEFAULT="\033[m"
+MESSAGE1=$RED"Hello $USER"$CYAN
+MESSAGE2=$RED"Welcome to $(hostname)"$CYAN
+
+echo -e $CYAN
+
+echo ""
+
+echo -e "   ▀▄   ▄▀  "
+echo -e "  ▄█▀███▀█▄  "
+echo -e " █▀███████▀█    $MESSAGE1"
+echo -e " ▀ ▀▄▄ ▄▄▀ ▀    $MESSAGE2"
+
+echo ""
+
+echo -e $DEFAULT
+
