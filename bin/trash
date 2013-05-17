@@ -1,0 +1,11 @@
+#!/bin/bash
+
+function usage() {
+    cat <<EOF
+Usage: $(basename $0) <file>|<directory>
+
+EOF
+}
+
+[ $# -gt 0 ] && mv -v "$@" ~/.Trash && exit 0
+usage
