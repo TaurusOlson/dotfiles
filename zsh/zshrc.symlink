@@ -16,7 +16,7 @@ alias sz="source $HOME/.zshrc"
 [ -e /usr/local/opt/autoenv/activate.sh ] && source /usr/local/opt/autoenv/activate.sh 
 
 # Add $ZSH/bin to $PATH
-export PATH=$PATH:$ZSH/bin
+export PATH=$PATH:$HOME/bin:$ZSH/bin
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
@@ -24,6 +24,3 @@ compinit
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file
-
-. `brew --prefix`/etc/profile.d/z.sh
-
