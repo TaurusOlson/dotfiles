@@ -20,6 +20,9 @@
         sum = log --format='* %C(yellow)%h%C(reset) - %s %C(green)%d'
         hist = log --pretty=format:'%C(yellow)%h %C(blue)%ad %Creset| %s%C(red)%d %C(green)[%an]' --graph --date=short
         untrack = rm -r cached
+        ribbon = tag --force _ribbon origin/master
+        catchup = log --patch --reverse --topo-order _ribbon..origin/master
+        tags = tag -l
 [color]
         diff = auto
         status = auto
