@@ -13,6 +13,7 @@ autoload -U $ZSH/zsh/functions/*(:t)
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
+setopt NO_BEEP
 setopt NO_LIST_BEEP
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
@@ -40,3 +41,14 @@ setopt COMPLETE_ALIASES
 setopt AUTO_NAME_DIRS
 setopt auto_pushd
 setopt PUSHD_IGNORE_DUPS
+
+
+# COLORS FOR MANPAGES ---------------------------------------------------- {{{1
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
