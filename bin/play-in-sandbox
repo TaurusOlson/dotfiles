@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Change the value of this variable to fit your environment
+PROGRAMMING_ENV=$PROJECTS
+
+function usage() {
+    cat <<EOF
+$(basename $0) - Go to the programming language sandbox and launch the corresponding interpreter
+Usage:
+$(basename $0) [language|interpreter]
+
+available languages and associated tools:
+   python: ipython
+  haskell: ghci
+     ruby: irb
+  clojure: lein repl
+
+EOF
+}
+
+function die() {
+    echo "$@"
+    exit 1
+}
+
+function exist?() {
+    [ -z $PROGRAMMING_ENV ] && die "The programming directory is not defined. Please define it then use mkenv."
+    [ ! -d $PROGRAMMING_ENV ] && die "$PROGRAMMING_ENV directory does not exist. Please create the environment then use mkenv."
+    [ ! -d $PROGRAMMING_ENV/$1 ] && die "$PROGRAMMING_ENV/$1 directory does not exist. Please create it then use mkenv."
+    [ -d $PROGRAMMING_ENV/$1/sandbox ] && return 0
+}
+
+function directory() {
+    local language=$1
+    exist? $language && echo "$PROGRAMMING_ENV/$language/sandbox"
+}
+
+
+function launch_interpreter() {
+    case "$1" in
+        "python"|"py"|"ipython"|"ipy")
+            cd $(directory "Python") && ipython
+            ;;
+        "haskell"|"hs"|"ghci")
+            cd $(directory "Haskell") && ghci
+            ;;
+        "ruby"|"rb"|"irb")
+            cd $(directory "Ruby") && irb
+            ;;
+        "clojure"|"clj"|"lein")
+            cd $(directory "Clojure") && lein repl
+            ;;
+        *)
+            die "Unknown language or interpreter"
+            ;;
+    esac
+}
+
+[ $# -eq 0 ] && usage && exit 0
+[ $# -eq 1 ] && launch_interpreter $1 

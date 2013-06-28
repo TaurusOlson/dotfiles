@@ -5,4 +5,4 @@ function mkdirs() {
 }
 
 [ $# -eq 1 ] && mkdirs $1 && echo "Made environment dirs for $1" && exit 1
-[ $# -ne 1 ] && echo "Usage: mkproj NEW_ENV\n" && exit 1
+[ $# -ne 1 ] && echo "Usage: $(basename $0) NEW_ENV\n" && exit 1
