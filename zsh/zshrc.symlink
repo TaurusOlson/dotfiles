@@ -9,11 +9,6 @@ for config_file ($ZSH/**/*.zsh) source $config_file
 
 alias sz="source $HOME/.zshrc"
 
-[ -e /usr/local/opt/autoenv/activate.sh ] && source /usr/local/opt/autoenv/activate.sh 
-
-# Add $ZSH/bin to $PATH
-export PATH=$PATH:$HOME/bin:$ZSH/bin
-
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
@@ -24,4 +19,7 @@ for config_file ($ZSH/**/completion.zsh) source $config_file
 # use .profile for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 [ -e ~/.profile ] && source ~/.profile
+
+# Add $ZSH/bin to $PATH
+export PATH=$PATH:$HOME/bin:$ZSH/bin
 
