@@ -1,0 +1,47 @@
+#!/bin/bash
+
+CL="\033[0m"
+BO="\033[1m"
+
+R="\033[31m" 
+G="\033[32m"
+Y="\033[33m"
+B="\033[34m"
+P="\033[35m"
+C="\033[36m"
+
+echo -e $R "\t-=[ Setup of OSX ]=-"
+echo
+
+if [ -e /Applications/Sublime\ Text\ 2.app ]; then
+    defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false &&\
+     echo -e ${G}"* Press and hold enabled in ST2"
+fi
+
+defaults write com.apple.screencapture type -string "png" &&\
+echo  -e ${G}"* Save screenshot in PNG format"
+
+defaults write com.apple.screencapture disable-shadow -bool true &&\
+echo "* Disable shadow in screenshots"
+
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true &&\
+echo "* Display full POSIX path as Finder window title"
+
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true &&\
+echo "* Avoid creating .DS_Store files on network volumes"
+
+defaults write com.apple.finder EmptyTrashSecurely -bool true &&\
+echo "* Empty Trash securely by default"
+
+defaults write com.apple.dock autohide -bool true &&\
+echo "* Automatically hide and show the Dock"
+     
+defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9" &&\
+echo "* Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app"
+
+defaults write com.apple.TextEdit RichText -int 0 &&\
+echo "* Use plain text mode for new TextEdit documents"${C}
+
+for app in "Mail" "Dock" "Finder"; do
+    killall $app > /dev/null 2>&1
+done
