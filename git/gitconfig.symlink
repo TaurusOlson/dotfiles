@@ -19,6 +19,7 @@
         unstage = reset HEAD
         sum = log --format='* %C(yellow)%h%C(reset) - %s %C(green)%d'
         hist = log --pretty=format:'%C(yellow)%h %C(blue)%ad %Creset| %s%C(red)%d %C(green)[%an]' --graph --date=short
+        skype = log --pretty=format:'%h %ai | %s%d' --graph --date=short
         untrack = rm -r cached
 [color]
         diff = auto
