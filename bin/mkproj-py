@@ -11,18 +11,9 @@ EOF
 [ $# -ne 1 ] && usage && exit 1
 [ $# -eq 1 ] && [ -d $1 ] && usage && echo "Give a valid project name that doesn't already exist."
 
-DIRECTORIES="docs sandbox tests"
 PROJECT_NAME="$1"
-FILES="$(basename $PROJECT_NAME.py) README.rst __init__.py"
 
-for directory in $DIRECTORIES
-do
-    mkdir -p $PROJECT_NAME/$directory
-done
-
-for file in $FILES
-do
-    touch $PROJECT_NAME/$file
-done
+mkdir -p $PROJECT_NAME/{docs,sandbox,tests}
+touch $PROJECT_NAME/{$(basename $PROJECT_NAME.py),README.rst,__init__.py}
 
 echo "Created the project $PROJECT_NAME."

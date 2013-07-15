@@ -12,18 +12,9 @@ EOF
 [ $# -ne 1 ] && usage && exit 1
 [ $# -eq 1 ] && [ -d $1 ] && usage && echo "Give a valid project name that doesn't already exist."
 
-DIRECTORIES="src"
 PROJECT_NAME="$1"
-FILES="$(basename $PROJECT_NAME.hs) README LICENCE"
 
-for directory in $DIRECTORIES
-do
-    mkdir -p $PROJECT_NAME/$directory
-done
-
-for file in $FILES
-do
-    touch $PROJECT_NAME/$file
-done
+mkdir -p $PROJECT_NAME/src
+touch $PROJECT_NAME/{$(basename $PROJECT_NAME.hs),README,LICENCE}
 
 echo "Created the project $PROJECT_NAME."
