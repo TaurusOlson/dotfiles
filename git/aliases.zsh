@@ -19,3 +19,4 @@ alias gca='git commit --amend'
 alias ga='git add'
 # alias go='git checkout'
 alias gb='git branch'
+alias gconfg="git config --global "
