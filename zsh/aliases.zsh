@@ -1,5 +1,5 @@
-alias reload!='. ~/.zshrc'
 alias .zshrc="vim ~/.zshrc"
+alias d="cd ~/.dotfiles"
 
 # CD  {{{1
 alias 1='cd -'
@@ -12,6 +12,8 @@ alias 7='cd +7'
 alias 8='cd +8'
 alias 9='cd +9'
 alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # LS  {{{1
 alias ls="ls -FG"
@@ -22,6 +24,6 @@ alias la="ls -a"
 alias l="dirs -v"
 
 # MISC{{{1
-alias wh=w"hich -a"
+alias wh="which -a"
 
 # vim:set fdm=marker:
