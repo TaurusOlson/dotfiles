@@ -1,0 +1,2 @@
+#compdef dwo
+_files -W $WORK -/

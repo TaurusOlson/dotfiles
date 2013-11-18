@@ -12,6 +12,10 @@ bindkey '^B' backward-char
 bindkey '^Z' menu-complete
 bindkey '^N' complete-word
 
+# Vim 
+bindkey -M viins 'kj' vi-cmd-mode
+bindkey -M vicmd 'u' undo
+
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
