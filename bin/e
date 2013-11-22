@@ -5,7 +5,12 @@ function usage () {
     cat <<EOF
 $(basename $0) - mvim server on steroids
 
-usage: $(basename $0) <servername> [file]
+usage: $(basename $0) [servername] [file]
+
+
+* If a servername and a file are provided, mvim connects to this server.
+* If an existing file is provided, mvim connects to the default server (VIM)
+* If the argument provided is not a file, mvim creates a new server.
 
 EOF
 }
@@ -15,7 +20,11 @@ if [[ $# -eq 0 ]]; then
     echo "Available servers:"
     mvim --serverlist && exit 0
 elif [[ $# -eq 1 ]]; then
-    mvim --servername $1 --remote-tab-silent ./scratch.txt
+    if [[ -f $1 ]]; then
+        mvim --servername VIM --remote-tab-silent $1
+    else
+        mvim --servername $1 --remote-tab-silent ./scratch.txt
+    fi
 elif [[ $# -gt 1 ]]; then
     servername=$1
     shift
