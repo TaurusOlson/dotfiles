@@ -1,3 +1,11 @@
+function t() {
+    t.py --task-dir $DROP/org/tasks --list=todo.org --delete-if-empty $@
+}
+
+function tools() {
+    t.py --task-dir $DROP/org/notes --list=tools.org --delete-if-empty $@
+}
+
 # BUGS {{{1
 bugs() {
     [ $# -eq 0 ] && t.py --task-dir . --list=ISSUES --delete-if-empty -g BUG
