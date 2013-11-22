@@ -1,6 +1,7 @@
 alias .zshrc="vim ~/.zshrc"
 alias d="cd ~/.dotfiles"
 
+
 # CD  {{{1
 alias 1='cd -'
 alias 2='cd +2'
@@ -15,6 +16,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+
 # LS  {{{1
 alias ls="ls -FG"
 alias lsd='ls -l | grep ^d'
@@ -23,7 +25,9 @@ alias ll="ls -lrth"
 alias la="ls -a"
 alias l="dirs -v"
 
+
 # MISC{{{1
 alias wh="which -a"
+
 
 # vim:set fdm=marker:

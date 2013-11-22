@@ -18,3 +18,4 @@ alias gco='git checkout'
 alias gci='git commit'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
+alias gconfg="git config --global "

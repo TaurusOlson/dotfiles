@@ -14,7 +14,7 @@
 [alias]
         co = checkout
         ci = commit
-        st = status
+	    st = status
         br = branch
         unstage = reset HEAD
         sum = log --format='* %C(yellow)%h%C(reset) - %s %C(green)%d'
@@ -24,6 +24,9 @@
         ribbon = tag --force _ribbon origin/master
         catchup = log --patch --reverse --topo-order _ribbon..origin/master
         tags = tag -l
+	    diff-staged = diff --cached
+	    diff-committed = diff
+        diff-both = diff HEAD
 [color]
         diff = auto
         status = auto
