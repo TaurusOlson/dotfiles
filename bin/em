@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+function emacs_daemon_is_launched() {
+    ps x | egrep -E "Emacs-[0-9]{2}.[0-9]+\s--daemon" 1> /dev/null && echo 1 || echo 0
+}
+
+function launch_emacs_daemon() {
+    /Applications/Emacs.app/Contents/MacOS/Emacs --daemon 
+}
+
+function launch_emacs_client() {
+    /Applications/Emacs.app/Contents/MacOs/bin/emacsclient -c -n "$@"
+}
+
+
+if [[ $(emacs_daemon_is_launched) = 0 ]]; then
+    echo "Launching emacs daemon..."
+    launch_emacs_daemon
+    echo "Daemon running."
+fi
+
+launch_emacs_client "$@"
