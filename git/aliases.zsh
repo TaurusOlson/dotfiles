@@ -6,7 +6,7 @@ then
   alias git=$hub_path
 fi
 
-alias gst='git status'
+alias gs='git status'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gh="git hist"
 alias gps='git push'
