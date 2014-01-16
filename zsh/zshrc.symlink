@@ -23,3 +23,6 @@ for config_file ($ZSH/**/completion.zsh) source $config_file
 # Add $ZSH/bin to $PATH
 export PATH=$PATH:$HOME/bin:$ZSH/bin
 
+# Add $ZSH/bin/man to $MANPATH
+export MANPATH=$HOME/bin/man:$MANPATH
+
