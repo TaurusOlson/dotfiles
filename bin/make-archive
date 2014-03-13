@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Usage: make-archive <format> <file>
+
+function usage() {
+cat <<EOF
+Usage: $(basename $0) <format> <file>
+
+EOF
+}
+
+
+if [ $# -eq 2 ]; then
+    case $1 in
+        *tar.bz2|*tbz2) tar cjvf ${2}.tar.bz2 $2;;
+        *tar.gz|*tgz) tar czvf ${2}.tar.gz $2;;
+        *zip) zip -r ${2}.zip $2;;
+        *) echo "Cannot archive this.";;
+    esac
+else
+    usage
+    exit 1
+fi

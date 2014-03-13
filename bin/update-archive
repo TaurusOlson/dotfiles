@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Usage: update-archive <archive> <file_or_dir>
+
+function usage() {
+cat <<EOF
+Usage: $(basename $0) <archive> <file_or_dir>
+
+EOF
+}
+
+function filename ()  { echo ${1%.*}; }
+
+
+if [ $# -eq 2 ]; then
+    TAR_FILE=$(filename $1)
+    gunzip $1 && tar -uf $TAR_FILE $2 && gzip $TAR_FILE 
+    echo "Updated $1 with $2"
+fi
