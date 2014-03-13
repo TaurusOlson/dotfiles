@@ -27,7 +27,7 @@ alias l="dirs -v"
 
 
 # MISC{{{1
-alias wh="which -a"
+alias w="which -a"
 
 
 # vim:set fdm=marker:
