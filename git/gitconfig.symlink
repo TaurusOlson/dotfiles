@@ -3,7 +3,7 @@
 [hub]
         protocol = https
 [user]
-        name = Taurus Olson
+	name = Taurus Olson
         email = taurusolson@gmail.com
 [github]
         user = Taurus Olson
@@ -19,6 +19,7 @@
         unstage = reset HEAD
         sum = log --format='* %C(yellow)%h%C(reset) - %s %C(green)%d'
         hist = log --pretty=format:'%C(yellow)%h %C(blue)%ad %Creset| %s%C(red)%d %C(green)[%an]' --graph --date=short
+        mhist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
         skype = log --pretty=format:'%h %ai | %s%d' --graph --date=short
         untrack = rm -r cached
         ribbon = tag --force _ribbon origin/master
@@ -65,3 +66,5 @@
 [grep]
 	lineNumber = true
 	extendRegexp = true
+[instaweb]
+    httpd = webrick

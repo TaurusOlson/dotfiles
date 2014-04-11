@@ -1,1 +1,1 @@
-alias t="$PROJECTS/repositories/t/t.py"
+# alias t="$PROJECTS/repositories/t/t.py"
