@@ -13,7 +13,7 @@ bindkey '^Z' menu-complete
 bindkey '^N' complete-word
 
 # Vim 
-bindkey -M viins 'kj' vi-cmd-mode
+bindkey -Mviins 'kj' vi-cmd-mode
 bindkey -M vicmd 'u' undo
 
 autoload edit-command-line
