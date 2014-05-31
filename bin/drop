@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Drop the n first lines of a file
+
+
+function count_lines() {
+    wc -l $1 | awk '{print $1}'
+}
+
+
+function usage() {
+    cat <<EOF
+Drop the n first lines of the input file
+
+Usage: 
+    $(basename $0) [n] <filename>
+
+(by default n = 1)
+EOF
+    exit 0
+}
+
+
+# Usage: drop filename
+if [[ $# -eq 1 && -f $1 ]]; then
+    NB_LINES=$(count_lines $1)
+    tail -n $((NB_LINES - 1)) $1
+
+# Usage: drop n filename
+elif [[ $# -eq 2 && -f $2 ]]; then
+    NB_LINES=$(count_lines $2)
+    NB_LINES_TO_SKIP=$1
+    if [[ $NB_LINES_TO_SKIP -gt $NB_LINES ]]; then
+        NB_LINES_TO_SKIP=$NB_LINES
+    fi
+    tail -n $((NB_LINES - NB_LINES_TO_SKIP)) $2
+
+else
+    usage
+fi
+
