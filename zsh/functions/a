@@ -1,0 +1,5 @@
+if [ -d $DATA/$1 ]; then
+    cd $DATA/$1; 
+elif [ -f $DATA/$1 ]; then
+    vim $DATA/$1; 
+fi;
