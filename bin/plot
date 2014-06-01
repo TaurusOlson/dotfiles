@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# A simple plotter using gnuplot
+# Usage:
+# cat file.dat | plot [col1] [col2]
+
+SYMBOL=lines
+TERMINAL="set term 'xterm'"
+
+
+
+if [[ $# -eq 0 ]]; then
+    gnuplot -p -e "$TERMINAL; plot '-' using 1:2 with $SYMBOL"
+elif [[ $# -eq 1 ]]; then
+    gnuplot -p -e "$TERMINAL; plot '-' using $1 with $SYMBOL"
+elif [[ $# -eq 2 ]]; then
+    gnuplot -p -e "$TERMINAL; plot '-' using $1:$2 with $SYMBOL"
+fi
