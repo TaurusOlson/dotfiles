@@ -23,7 +23,7 @@ alias lsd='ls -l | grep ^d'
 alias ls.='ls -d .*'
 alias ll="ls -lrth"
 alias la="ls -a"
-alias l="dirs -v"
+alias l="dirs -v | head -n 10"
 
 
 # MISC{{{1
