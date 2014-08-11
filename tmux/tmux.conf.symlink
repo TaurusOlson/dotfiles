@@ -49,6 +49,8 @@ bind -n C-k run "(tmux display-message -p '#{pane_title}' | grep -iq vim && tmux
 bind -n C-l run "(tmux display-message -p '#{pane_title}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
 
 
+set-option -g pane-active-border-bg default
+
 # 256 colors please
 set -g default-terminal "screen-256color"
 
@@ -56,7 +58,6 @@ set -g default-terminal "screen-256color"
 set -g status-left-length 32
 set -g status-right-length 150
 set -g status-interval 2
-# set -g status-fg red
 set -g status-bg default
 
 # window title
@@ -101,3 +102,16 @@ set -g mouse-select-pane on
 # Reload the config.
 bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
 
+
+# Railscast
+set -g status-fg white
+set-window-option -g window-status-current-fg black
+set-window-option -g window-status-current-bg default
+set -g pane-border-fg colour235
+set -g pane-border-bg black
+# Active
+set -g pane-active-border-fg green
+set -g pane-active-border-bg default
+# Inactive
+set -g pane-border-fg black
+set -g pane-border-bg default
