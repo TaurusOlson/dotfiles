@@ -28,6 +28,8 @@ alias l="dirs -v | head -n 10"
 
 # MISC{{{1
 alias w="which -a"
+alias ip="nmap -sP 192.168.1.0/24 | grep ^Nmap"
+alias ip-mac="arp -a | grep -v incomplete"
 
 
 # vim:set fdm=marker:
