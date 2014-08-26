@@ -29,6 +29,7 @@
         diff-committed = diff
         diff-both = diff HEAD
         ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	g = grep --break --heading --line-number
 [color]
         diff = auto
         status = auto
@@ -62,5 +63,8 @@
         autocorrect = 1
 [push]
 	default = matching
+[grep]
+	lineNumber = true
+	extendRegexp = true
 [instaweb]
     httpd = webrick

@@ -1,5 +1,0 @@
-if [ -d $DROP/$1 ]; then
-    cd $DROP/$1; 
-elif [ -f $DROP/$1 ]; then
-    vim $DROP/$1; 
-fi;

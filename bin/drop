@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Drop the n first lines of a file
+
+
+function usage() {
+    cat <<EOF
+Drop the n first lines of the input file
+
+Usage: 
+    $(basename $0) [n] <filename>
+
+(by default n = 1)
+EOF
+    exit 0
+}
+
+
+# Usage: expr | drop
+if [[ $# -eq 0 ]]; then
+    tail -n +2
+
+# Usage: expr | drop n
+elif [[ $# -eq 1 && ! -f $1 ]]; then
+    tail -n +$(($1 + 2))
+
+# Usage: drop filename
+elif [[ $# -eq 1 && -f $1 ]]; then
+    tail -n +2 $1
+
+# Usage: drop n filename
+elif [[ $# -eq 2 && -f $2 ]]; then
+    tail -n +$(($1 + 2)) $2
+
+elif [[ "$1" = '-h' || "$1" = '--help' ]]; then
+    usage
+fi
+

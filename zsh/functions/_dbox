@@ -1,3 +1,2 @@
 #compdef dbox
 _files -W $DBOX -/
-
