@@ -1,5 +1,4 @@
 alias .zshrc="vim ~/.zshrc"
-alias d="cd ~/.dotfiles"
 
 
 # CD  {{{1
