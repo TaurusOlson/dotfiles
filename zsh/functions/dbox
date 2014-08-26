@@ -1,0 +1,5 @@
+if [ -d $DBOX/$1 ]; then
+    cd $DBOX/$1; 
+elif [ -f $DBOX/$1 ]; then
+    vim $DBOX/$1; 
+fi;
