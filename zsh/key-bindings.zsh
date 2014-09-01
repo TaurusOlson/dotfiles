@@ -22,3 +22,17 @@ bindkey '^X^E' edit-command-line
 
 # bindkey '^P' history-beginning-search-backward
 # bindkey '^N' history-beginning-search-forward
+ 
+
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
