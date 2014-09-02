@@ -30,5 +30,8 @@ alias w="which -a"
 alias ip="nmap -sP 192.168.1.0/24 | grep ^Nmap"
 alias ip-mac="arp -a | grep -v incomplete"
 
+# Get the sizes and the rank of each file in the current directory
+alias sizes='du -sc * | sort -n | cat -n'
+
 
 # vim:set fdm=marker:

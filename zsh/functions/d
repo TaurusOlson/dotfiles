@@ -1,5 +1,5 @@
-if [ -d $ZSH/$1 ]; then
-    cd $ZSH/${1}; 
-elif [ -f $ZSH/$1 ]; then
-    vim $ZSH/${1}; 
+if [ -d $DOTFILES/$1 ]; then
+    cd $DOTFILES/${1}; 
+elif [ -f $DOTFILES/$1 ]; then
+    vim $DOTFILES/${1}; 
 fi;

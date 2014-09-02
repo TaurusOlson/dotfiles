@@ -6,6 +6,11 @@ function usage() {
 cat <<EOF
 Usage: $(basename $0) <format> <file>
 
+Available formats:
+    - tar.bz2 or tbz2
+    - tar.gz or tgz
+    - zip
+
 EOF
 }
 
