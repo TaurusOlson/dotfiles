@@ -1,0 +1,6 @@
+if [ -d $PROG/$1 ]; then
+    cd $PROG/$1; 
+elif [ -f $PROG/$1 ]; then
+    vim $PROG/$1; 
+fi;
+
