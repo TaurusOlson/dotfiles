@@ -12,7 +12,7 @@ function suffix() {
     fi
 }
 
-function lines() { wc -l $@; }
+function nrow() { wc -l $@; }
 
 function drop() { tail -n +2 $@; }
 
