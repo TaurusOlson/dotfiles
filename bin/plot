@@ -4,7 +4,7 @@
 # Usage:
 # cat file.dat | plot [col1] [col2]
 
-SYMBOL=lines
+SYMBOL=points
 TERMINAL="set term 'xterm'"
 
 
