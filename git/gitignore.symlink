@@ -1,6 +1,10 @@
-.DS_Store
-.svn
-*~
+*.pyc
 *.swp
-*.rbc
+.svn
+.bzr
+.hg
+*.zip
 tags
+tags-ja
+.netrwhist
+.DS_Store

@@ -1,9 +1,9 @@
 function t() {
-    t.py --task-dir $DROP/org/tasks --list=todo.org --delete-if-empty $@
+    t.py --task-dir $DBOX/org/tasks --list=todo.org --delete-if-empty $@
 }
 
 function tools() {
-    t.py --task-dir $DROP/org/notes --list=tools.org --delete-if-empty $@
+    t.py --task-dir $DBOX/org/notes --list=tools.org --delete-if-empty $@
 }
 
 # BUGS {{{1

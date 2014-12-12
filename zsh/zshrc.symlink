@@ -1,11 +1,18 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
+# your programming folder that we can `x [tab]` to
+export PROG=~/Programming
+
 # your project folder that we can `p [tab]` to
-export PROJECTS=~/Programming
+export PROJECTS=~/Dropbox/MyProjects
 
 # your data folder that we can `a [tab]` to
 export DATA=~/Data
+
+# use .profile for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+[ -e ~/.profile ] && source ~/.profile
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
@@ -19,9 +26,8 @@ compinit
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file
 
-# use .profile for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-[ -e ~/.profile ] && source ~/.profile
+# Z
+. `brew --prefix`/etc/profile.d/z.sh
 
 # Add $ZSH/bin to $PATH
 export PATH=$PATH:$HOME/bin:$ZSH/bin

@@ -22,7 +22,6 @@ bindkey '^X^E' edit-command-line
 
 # bindkey '^P' history-beginning-search-backward
 # bindkey '^N' history-beginning-search-forward
- 
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then

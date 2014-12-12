@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function usage() {
+cat <<EOF
+$(basename $0) - Make a diff between two files with same filenames
+
+Usage: $(basename $0) <file> <path>
+
+file: the file to diff
+path: the directory of the other file to diff
+
+EOF
+}
+
+[ -x $(which colordiff) ] && DIFFTOOL=colordiff || DIFFTOOL=diff
+
+[ $# -ne 2 ] && usage && exit 0
+${DIFFTOOL} "$1" "$2"/"$1"
