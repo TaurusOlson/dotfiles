@@ -10,6 +10,9 @@ export PROJECTS=~/Dropbox/MyProjects
 # your data folder that we can `a [tab]` to
 export DATA=~/Data
 
+# You can access directly these directories
+# export CDPATH=.:$PROJECTS:$DATA
+
 # use .profile for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 [ -e ~/.profile ] && source ~/.profile
