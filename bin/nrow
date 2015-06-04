@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+function usage() {
+    cat <<EOF
+Count the lines of the files
+
+Usage: 
+    $(basename $0) [files]
+
+EOF
+    exit 0
+}
+
+[ $# -ge 1 ] && wc -l "$@" && exit 0
+usage
+

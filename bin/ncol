@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+function usage() {
+    cat <<EOF
+Count the columns of the files
+
+Usage: 
+    $(basename $0) <sep> <file>
+
+    $(basename $0) <csvfile>
+
+EOF
+    exit 0
+}
+
+[ $# -eq 2 ] && head -n 1 $2 | awk -F"$1" '{print NF}' && exit 0
+[ $# -eq 1 ] && [ -f $1 ] && head -n 1 $1 | awk -F"," '{print NF}' && exit 0
+usage
