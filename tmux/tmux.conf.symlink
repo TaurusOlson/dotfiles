@@ -9,8 +9,8 @@ set -g default-command "reattach-to-user-namespace -l zsh"
 # Copy mode
 bind ` copy-mode
 unbind [
-unbind p
-bind p paste-buffer
+# unbind p
+# bind p paste-buffer
 bind -t vi-copy V begin-selection
 bind -t vi-copy y copy-selection
 bind -t vi-copy Escape cancel
@@ -96,11 +96,6 @@ bind c new-window
 bind C-a last-window
 bind , command-prompt "rename-window '%%'"
 bind = command-prompt "rename-session '%%'"
-
-# Mouse
-set -g mode-mouse on
-set -g mouse-select-window on
-set -g mouse-select-pane on
 
 # Reload the config.
 bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
