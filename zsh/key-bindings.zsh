@@ -3,6 +3,10 @@ bindkey -v
 # History
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
+# bind UP and DOWN arrow keys 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 
 bindkey '^K' kill-whole-line
 bindkey '^A' beginning-of-line
