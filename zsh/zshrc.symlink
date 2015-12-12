@@ -37,5 +37,6 @@ export PATH=$PATH:$HOME/bin:$ZSH/bin
 
 # Add $HOME/bin/man to $MANPATH
 export MANPATH=$HOME/bin/man:$MANPATH
+
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV"
