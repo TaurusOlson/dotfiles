@@ -1,3 +1,4 @@
+alias sz="source $HOME/.zshrc"
 alias .zshrc="vim ~/.zshrc"
 
 

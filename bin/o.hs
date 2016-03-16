@@ -41,6 +41,7 @@ exts =
     , "jpg"
     , "jpeg"
     , "bmp"
+    , "html"
     , "tiff"
     , "gif"
     , "pdf"

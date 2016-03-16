@@ -8,21 +8,17 @@
 # Check for Homebrew
 if test ! $(which brew)
 then
-    echo "  x You should probably install Homebrew first:"
-    echo "    https://github.com/mxcl/homebrew/wiki/installation"
-    exit
-else
-    echo "  + Homebrew found."
-    echo "    Updating..."
-    brew update
+  echo "  Installing Homebrew for you."
 
-    echo "    Installing formulae..."
-    brew install ack
-    brew install tmux
-    brew install hub
-    brew install rbenv
-    brew install mpd
-    brew install mpc
-    brew install ctags
+  # Install the correct homebrew for each OS type
+  if test "$(uname)" = "Darwin"
+  then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+  then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+  fi
+
 fi
 
+exit 0

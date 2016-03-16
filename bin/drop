@@ -22,7 +22,7 @@ if [[ $# -eq 0 ]]; then
 
 # Usage: expr | drop n
 elif [[ $# -eq 1 && ! -f $1 ]]; then
-    tail -n +$(($1 + 2))
+    tail -n +$(($1 + 1))
 
 # Usage: drop filename
 elif [[ $# -eq 1 && -f $1 ]]; then

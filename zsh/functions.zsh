@@ -12,9 +12,7 @@ function suffix() {
     fi
 }
 
-function nrow() { wc -l $@; }
-
-function drop() { tail -n +2 $@; }
+# function drop() { tail -n +2 $@; }
 
 function rename_window() { echo -en "\e]0;$1\a" }
 

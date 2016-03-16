@@ -17,17 +17,36 @@ export DATA=~/Data
 # want in your public, versioned repo.
 [ -e ~/.profile ] && source ~/.profile
 
-# source every .zsh file in this rep
-for config_file ($ZSH/**/*.zsh) source $config_file
+# all of our zsh files
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
 
-alias sz="source $HOME/.zshrc"
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+    echo "Sourcing ${file}"
+done
+
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
 
 # load every completion after autocomplete loads
-# for config_file ($ZSH/**/completion.zsh) source $config_file
+for file in ${(M)config_files:#*/completion.zsh}
+do
+  source $file
+done
+
+unset config_files
+
+# CUSTOM CONFIG
 
 # Z
 . `brew --prefix`/etc/profile.d/z.sh
@@ -40,3 +59,5 @@ export MANPATH=$HOME/bin/man:$MANPATH
 
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
