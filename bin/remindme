@@ -1,13 +1,19 @@
 #! /bin/bash
 #
-# reminder.sh
+# *remindme* is a reminder for the little things you have to do later
+# 
 # Copyright (C) 2016 Taurus Olson <taurusolson@gmail.com>
 #
 # Distributed under terms of the MIT license.
 #
 
 
-# afplay -v 100 /System/Library/Sounds/Purr.aiff
+# Usage:
+# $ remindme to call Simon at 18:00
+# or
+# $ remindme to call Simon
+# (you will then be asked to precise when)
+
 if [[ "$@" == *" at "* ]]; then
     msg=$(echo "$@" | awk -F" at " '{print $1}')
     when=$(echo "$@" | awk -F" at " '{print $2}')
@@ -16,4 +22,4 @@ else
     read -p "When? " when
 fi
 
-echo "$msg" | at "$when"
+echo "echo $msg && afplay -v 100 /System/Library/Sounds/Purr.aiff" | at "$when"
