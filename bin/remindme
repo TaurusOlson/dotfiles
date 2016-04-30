@@ -1,0 +1,19 @@
+#! /bin/bash
+#
+# reminder.sh
+# Copyright (C) 2016 Taurus Olson <taurusolson@gmail.com>
+#
+# Distributed under terms of the MIT license.
+#
+
+
+# afplay -v 100 /System/Library/Sounds/Purr.aiff
+if [[ "$@" == *" at "* ]]; then
+    msg=$(echo "$@" | awk -F" at " '{print $1}')
+    when=$(echo "$@" | awk -F" at " '{print $2}')
+else
+    msg="$@"
+    read -p "When? " when
+fi
+
+echo "$msg" | at "$when"

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+function usage() {
+    cat<<EOF
+$(basename $0) - c is for compile
+
+Usage: 
+    $(basename $0) <cfile>
+
+EOF
+}
+
+[ $# -ne 1 ] || [ ! -e $1 ] && usage && exit 1
+
+if [[ $# -eq 1 ]]; then
+    CFLAGS=-Wall
+
+    if [[ "${1##*.}" == "c" ]]; then
+        CC=gcc
+    elif [[ "${1##*.}" == "cpp" ]]; then 
+        CC=g++
+    else
+        usage
+    fi
+
+    ${CC} ${CFLAGS} $1 -o ${1%.*} && exit 0
+fi
