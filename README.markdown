@@ -38,3 +38,17 @@ The benefits of this new organization:
     * it is easier to share
 
 
+## Install
+
+```
+script/bootstrap
+```
+
+
+## Usage
+
+```
+dot_manager
+```
+
+
