@@ -32,6 +32,7 @@ exts =
     , "txt"
     , "tex"
     , "py"
+    , "sh"
     , "vim"
     , "wiki"
     ]
