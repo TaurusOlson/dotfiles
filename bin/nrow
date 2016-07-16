@@ -3,15 +3,23 @@
 
 function usage() {
     cat <<EOF
-Count the lines of the files
+Count the lines of the input files
 
 Usage: 
-    $(basename $0) [files]
+    $(basename $0) [-v] <file1> [file2 file3 ...]
 
 EOF
     exit 0
 }
 
-[ $# -ge 1 ] && wc -l "$@" | awk '{print $1} '&& exit 0
-usage
-
+if [[ $# -ge 1 ]]
+then
+    [[ $1 = -v ]] && verbose=true && shift
+    for file in "$@"
+    do
+        [[ $verbose = true ]] && echo -n "${file}: "
+        wc -l "${file}" | awk '{print $1}' 
+    done
+else
+    usage
+fi
