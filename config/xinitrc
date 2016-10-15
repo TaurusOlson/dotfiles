@@ -1,0 +1,9 @@
+pulseaudio --start &
+start-pulseaudio-x11 &
+setxkbmap -option ctrl:nocaps &
+xrdb ~/.Xresources &
+feh --bg-fill ~/Images/black_mountain.png &
+xautolock -time 5 -locker "/usr/bin/i3lock -c 181512 -i '/home/damien/Images/black_sea.png' -t" &
+redshift &
+mpd &
+exec i3
