@@ -1,0 +1,80 @@
+! /-----------------------\
+! | Created by fs0ciety   |
+! | https://fsociety.info |
+! | 2016                  |
+! \-----------------------/
+
+
+! Colors
+#include </home/damien/.Xresources.d/synthwave>
+
+
+! XFT settings
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: full
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+
+! UI
+URxvt*termName:                 rxvt-256color
+URxvt*font:                     xft:FiraCode:size=16
+URxvt.depth:                    32
+URxvt*lineSpace:                1
+URxvt.letterSpace:              0
+URxvt.scrollBar:                false
+URxvt*loginShell:               true
+URxvt.internalBorder:           35
+
+! Extensions
+URxvt.perl-ext-common: default,matcher,resize-font
+
+! resize-font
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+! matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+! Colors
+*background:   bg
+*foreground:   fg
+*cursorColor:  cyn
+! Black
+*color0:      blk
+*color8:      bblk
+! Red
+*color1:      red
+*color9:      red
+! Green
+*color2:      grn
+*color10:     grn
+! Yellow
+*color3:      ylw
+*color11:     ylw
+! Blue
+*color4:      blu
+*color12:     blu
+! Magenta
+*color5:      mag
+*color13:     mag
+! Cyan
+*color6:      cyn
+*color14:     cyn
+! White
+*color7:      wht
+*color15:     wht
+
+
+! Rofi
+rofi.color-enabled: true
+!                  bg   bor, scroll
+rofi.color-window: bg, cyn, bg
+!                  bg      fg       bgalt    hlbg     hlfg
+rofi.color-normal: bg,     fg,      bg,     grn,     bg
+rofi.color-active: bg,     grn,     ylw,     mag,     bg
+rofi.color-urgent: bg,     red,     ylw,     mag,     bg
+rofi.separator-style: none
