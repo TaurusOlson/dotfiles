@@ -3,15 +3,6 @@ function mkcd() { mkdir -p "${1}" && cd "${1}"; }
 function i() { (head -n 5; tail -n 5) < "$1" | column -t; }
 
 
-# TODO Allow suffixing of files by taking into account the file extension
-function suffix() { 
-    if [ $# -ne 2 ]; then
-        echo "suffix <dir> <string_to_suffix>"
-    else
-        mv ${1} ${1}_${2}
-    fi
-}
-
 # function drop() { tail -n +2 $@; }
 
 function rename_window() { echo -en "\e]0;$1\a" }
@@ -29,3 +20,14 @@ punshift () { eval "${2:-PATH}='$1:$(eval echo \$${2:-PATH})'"; }
 # Usage: ppush <path> [<var>]
 ppush () { eval "${2:-PATH}='$(eval echo \$${2:-PATH})':$1"; }
 
+# Usage: gitzip
+gitzip() { git archive -o $(basename $PWD).zip HEAD }
+
+# Usage: source_if_exists <filename>
+source_if_exists() {
+    if [[ -f $1 ]]; then
+        source $1
+    else
+        echo -e "\e[31mWARNING:\e[0m Can't find the file $1 to source it."
+    fi
+}
