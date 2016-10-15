@@ -6,9 +6,10 @@ then
   alias git=$hub_path
 fi
 
+alias g='git'
 alias gs='git status'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gh="git hist"
+alias gh='git hist'
 alias gps='git push'
 alias gpl='git pull'
 alias ga='git add'
@@ -19,7 +20,6 @@ alias gci='git commit'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
 alias gcma='git commit -am'
-alias gconfg="git config --global "
 
 
 # For conflicts

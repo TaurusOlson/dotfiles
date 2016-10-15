@@ -9,18 +9,15 @@
         user = Taurus Olson
 [color "branch"]
         rebase = false
-[credential]
-	helper = osxkeychain
 [alias]
         co = checkout
         ci = commit
+        s = status -s
         st = status
         br = branch
         unstage = reset HEAD
         sum = log --format='* %C(yellow)%h%C(reset) - %s %C(green)%d'
         hist = log --pretty=format:'%C(yellow)%h %C(blue)%ad %C(green)%an %Creset| %s%C(red)%d' --graph --date=short
-        mhist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-        skype = log --pretty=format:'%h %ai | %s%d' --graph --date=short
         untrack = rm -r cached
         ribbon = tag --force _ribbon origin/master
         catchup = log --patch --reverse --topo-order _ribbon..origin/master
@@ -28,7 +25,6 @@
         diff-staged = diff --cached
         diff-committed = diff
         diff-both = diff HEAD
-        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	g = grep --break --heading --line-number
 [color]
         diff = auto
@@ -53,7 +49,7 @@
 [core]
         excludesfile = ~/.gitignore
         editor = vim
-	pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+	; pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [apply]
         whitespace = nowarn
 [mergetool]
