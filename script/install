@@ -8,8 +8,20 @@ cd "$(dirname $0)"/..
 
 
 # Run Homebrew through the Brewfile
-echo "› brew bundle"
-brew bundle
+if [[ $(uname) = "Darwin" ]]; then
+    echo "› brew bundle"
+    brew bundle
+
+# # Ubuntu/Debian
+elif [[ $(uname) = "Linux" ]]; then
+    echo "› Running apt-get"
+    sudo apt-get install exuberant-ctags
+    sudo apt-get install zsh
+    sudo apt-get install xautolock
+    sudo apt-get install i3
+    sudo apt-get install ranger
+    sudo apt-get install ncdu
+fi
 
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
