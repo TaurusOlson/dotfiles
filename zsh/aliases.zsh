@@ -1,4 +1,5 @@
 alias sz="source $HOME/.zshrc"
+alias sp="source $HOME/.profile"
 alias .zshrc="vim ~/.zshrc"
 
 
@@ -18,7 +19,7 @@ alias ....="cd ../../.."
 
 
 # LS  {{{1
-alias ls="ls -FG"
+alias ls="ls --color=always"
 alias lsd='ls -l | grep ^d'
 alias ls.='ls -d .*'
 alias ll="ls -lrth"
@@ -34,5 +35,11 @@ alias ip-mac="arp -a | grep -v incomplete"
 # Get the sizes and the rank of each file in the current directory
 alias sizes='du -sc * | sort -n | cat -n'
 
+
+# I3
+alias .i3="vim ~/.config/i3/config"
+
+
+alias reload_theme="xrdb ~/.Xresources"
 
 # vim:set fdm=marker:
