@@ -1,11 +1,18 @@
 #!/bin/bash
 
+set -e
+
 function usage() {
     cat <<EOF
-Usage: $(basename $0) <file>|<directory>
+$(basename $0) - Safely move to trash instead of permanently removing
 
+Usage: $(basename $0) <file>|<directory>
 EOF
 }
 
-[ $# -gt 0 ] && mv -v "$@" ~/.Trash && exit 0
+TRASH_DIR=$HOME/.Trash
+
+mkdir -p $TRASH_DIR
+
+[ $# -gt 0 ] && mv -v "$@" $TRASH_DIR && exit 0
 usage
