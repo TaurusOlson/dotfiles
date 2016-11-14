@@ -72,10 +72,13 @@ source_if_exists ~/.fzf.zsh
 source_if_exists ~/.travis/travis.sh
 
 # autoenv
-source_if_exists ~/.autoenv/activate.sh
+# source_if_exists ~/.autoenv/activate.sh
 
 # zsh-autosuggestions
 source_if_exists ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # z
 source_if_exists ~/.config/z/z.sh
+
+# direnv
+eval "$(direnv hook zsh)"
