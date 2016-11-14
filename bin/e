@@ -1,16 +1,25 @@
 #!/bin/bash
 
 
+if [[ $(uname) = "Darwin" ]]; then
+    vim_gui=mvim
+    vim_gui_name="mvim"
+elif [[ $(uname) = "Linux" ]]; then
+    vim_gui=gvim
+    vim_gui_name="gvim"
+fi
+
+
 function usage () {
     cat <<EOF
-$(basename $0) - mvim server on steroids
+    $(basename $0) - ${vim_gui_name} server on steroids
 
 usage: $(basename $0) [servername] [file]
 
 
-* If a servername and a file are provided, mvim connects to this server.
-* If an existing file is provided, mvim connects to the default server (VIM)
-* If the argument provided is not a file, mvim creates a new server.
+* If a servername and a file are provided, ${vim_gui_name} connects to this server.
+* If an existing file is provided, ${vim_gui_name} connects to the default server (VIM)
+* If the argument provided is not a file, ${vim_gui_name} creates a new server.
 
 EOF
 }
@@ -18,20 +27,20 @@ EOF
 if [[ $# -eq 0 ]]; then
     usage
     echo "Available servers:"
-    mvim --serverlist && exit 0
+    ${vim_gui} --serverlist && exit 0
 elif [[ $# -eq 1 ]]; then
     if [[ -f $1 ]]; then
-        mvim --servername VIM --remote-tab-silent $1
+        ${vim_gui} --servername VIM --remote-tab-silent $1
     else
-        mvim --servername $1 --remote-tab-silent ./scratch.txt
+        ${vim_gui} --servername $1 --remote-tab-silent ./scratch.txt
     fi
 elif [[ $# -gt 1 ]]; then
     servername=$1
     shift
     files="$@"
-    mvim --servername $servername --remote-tab-silent $files
+    ${vim_gui} --servername $servername --remote-tab-silent $files
 fi
 
 
-# mvim --servername flagTool --remote-send "<ESC>:ls<CR>"
+# ${vim_gui} --servername flagTool --remote-send "<ESC>:ls<CR>"
 
