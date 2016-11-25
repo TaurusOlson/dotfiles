@@ -11,13 +11,12 @@ export ZSH=$HOME/.dotfiles
 # $ZSH/osx/set-defaults.sh
 
 # Upgrade homebrew
-if [[ $(uname) = "Darwin"]]; then
+if [ $(uname) = "Darwin" ]; then
     echo "› brew update"
     brew update
-elif [[ $(uname) = "Linux"]]; then
+elif [ $(uname) = "Linux" ]; then
     echo "› sudo apt-get update"
     sudo apt-get update
-
 fi
 
 # Install homebrew packages

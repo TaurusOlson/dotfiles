@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+# A script to install the packages specified in the Aptfile in the current
+# directory
+
+
+function usage() {
+    cat <<EOF
+$(basename $0) - apt install a la Brewfile
+
+Usage:
+    $(basename $0)
+EOF
+}
+
+[ ! -f Aptfile ] && echo 'No Aptfile found.'
+
+packages=$(cat Aptfile)
+
+for package in ${packages}; do
+    sudo apt install -y $package
+done

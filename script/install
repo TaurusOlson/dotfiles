@@ -15,12 +15,7 @@ if [[ $(uname) = "Darwin" ]]; then
 # # Ubuntu/Debian
 elif [[ $(uname) = "Linux" ]]; then
     echo "› Running apt-get"
-    sudo apt-get -y install exuberant-ctags
-    sudo apt-get -y install zsh
-    sudo apt-get -y install xautolock
-    sudo apt-get -y install i3
-    sudo apt-get -y install ranger
-    sudo apt-get -y install ncdu
+    ./bin/apt-bundle
 fi
 
 # find the installers and run them iteratively
