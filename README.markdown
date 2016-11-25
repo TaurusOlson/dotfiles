@@ -48,7 +48,7 @@ script/bootstrap
 ## Usage
 
 ```
-dot_manager
+dotty
 ```
 
 
