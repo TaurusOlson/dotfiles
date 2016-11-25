@@ -1,0 +1,32 @@
+# Offlineimap configuration for the account paulinejboone@gmail.com
+# get started fast.
+
+[general]
+ui = ttyui
+accounts = paulinejboone
+fsync = False
+pythonfile = ~/.mutt/offlineimap.py
+
+[Account paulinejboone]
+localrepository = paulinejboone-Local
+remoterepository = paulinejboone-Remote
+status_backend = sqlite
+
+[Repository paulinejboone-Local]
+type = Maildir
+localfolders = ~/Mail/paulinejboone@gmail.com
+
+[Repository paulinejboone-Remote]
+type = Gmail
+remoteuser = paulinejboone@gmail.com
+remotepasseval = get_pass()
+realdelete = no
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"

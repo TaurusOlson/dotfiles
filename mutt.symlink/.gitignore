@@ -1,0 +1,6 @@
+cache
+*.cert
+*.pyc
+temp
+passwords.gpg
+aliases
