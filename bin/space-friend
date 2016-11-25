@@ -3,18 +3,21 @@
 
 RED="\033[31m"
 CYAN="\033[0;36m"
+YELLOW="\033[0;33m"
 DEFAULT="\033[m"
 MESSAGE1=$RED"Hello $USER"$CYAN
 MESSAGE2=$RED"Welcome to $(hostname)"$CYAN
+MESSAGE3=$RED"Uptime since: "$YELLOW"$(uptime -s)"$CYAN
+MESSAGE4=$RED"tty: "$YELLOW"$(tty)"$CYAN
 
 echo -e $CYAN
 
 echo ""
 
-echo -e "   ▀▄   ▄▀  "
-echo -e "  ▄█▀███▀█▄  "
-echo -e " █▀███████▀█    $MESSAGE1"
-echo -e " ▀ ▀▄▄ ▄▄▀ ▀    $MESSAGE2"
+echo -e "   ▀▄   ▄▀      $MESSAGE1"
+echo -e "  ▄█▀███▀█▄     $MESSAGE2"
+echo -e " █▀███████▀█    $MESSAGE3"
+echo -e " ▀ ▀▄▄ ▄▄▀ ▀    $MESSAGE4"
 
 echo ""
 

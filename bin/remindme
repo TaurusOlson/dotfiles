@@ -22,4 +22,5 @@ else
     read -p "When? " when
 fi
 
-echo "echo $msg && afplay -v 100 /System/Library/Sounds/Purr.aiff" | at "$when"
+# echo "echo $msg && afplay -v 100 /System/Library/Sounds/Purr.aiff" | at "$when"
+echo "notify-send '$msg'" | at "$when"
