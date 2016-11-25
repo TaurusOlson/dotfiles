@@ -82,3 +82,5 @@ source_if_exists ~/.config/z/z.sh
 
 # direnv
 eval "$(direnv hook zsh)"
+
+space-friend

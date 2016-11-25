@@ -31,3 +31,17 @@ source_if_exists() {
         echo -e "\e[31mWARNING:\e[0m Can't find the file $1 to source it."
     fi
 }
+
+
+enable_vrack() {
+    sudo ipsec start
+    sleep 2
+    sudo ipsec up $VRACK
+}
+
+disable_vrack() {
+    sudo ipsec down $VRACK
+    sudo ipsec stop
+}
+
+ttyn() { tty | awk -F"/" '{print $4}'; }
