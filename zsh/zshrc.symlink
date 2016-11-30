@@ -66,10 +66,10 @@ export MANPATH=$HOME/bin/share/man:$MANPATH
 # PLUGINS
 
 # fzf
-source_if_exists ~/.fzf.zsh
+# source_if_exists ~/.fzf.zsh
 
 # added by travis gem
-source_if_exists ~/.travis/travis.sh
+# source_if_exists ~/.travis/travis.sh
 
 # autoenv
 # source_if_exists ~/.autoenv/activate.sh

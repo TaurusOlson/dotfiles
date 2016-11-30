@@ -29,8 +29,8 @@ alias l="dirs -v | head -n 10"
 
 # MISC{{{1
 alias w="which -a"
-alias ip="nmap -sP 192.168.1.0/24 | grep ^Nmap"
-alias ip-mac="arp -a | grep -v incomplete"
+# alias ip="nmap -sP 192.168.1.0/24 | grep ^Nmap"
+# alias ip-mac="arp -a | grep -v incomplete"
 
 # Get the sizes and the rank of each file in the current directory
 alias sizes='du -sc * | sort -n | cat -n'
