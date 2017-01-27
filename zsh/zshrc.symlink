@@ -80,7 +80,14 @@ source_if_exists ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
 # z
 source_if_exists ~/.config/z/z.sh
 
+# i3
+source_if_exists ~/bin/i3utils.sh
+
 # direnv
 eval "$(direnv hook zsh)"
 
+# pyenv-virtualenv
+# eval "$(pyenv virtualenv-init -)"
+
 space-friend
+
