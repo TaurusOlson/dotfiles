@@ -38,3 +38,7 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+
+bindkey "^[Od" backward-word
+bindkey "^[Oc" forward-word
