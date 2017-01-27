@@ -25,6 +25,8 @@ URxvt.letterSpace:              0
 URxvt.scrollBar:                false
 URxvt*loginShell:               true
 URxvt.internalBorder:           35
+/* URxvt.fading:                   15 */
+URxvt.transparent:              false
 
 ! Extensions
 URxvt.perl-ext-common: default,matcher,resize-font

@@ -1,0 +1,11 @@
+pulseaudio --start &
+start-pulseaudio-x11 &
+setxkbmap -option ctrl:nocaps &
+xrdb ~/.Xresources &
+feh --bg-fill ~/Images/mountain2-tj-holowaychuk.png &
+xautolock -time 5 -locker "/usr/bin/i3lock -c 181512 -i '/home/damien/Images/shore2-oliver-hen-pritchard-barrett.png' -t" &
+redshift &
+mpd &
+dunst &
+dropbox start &
+exec i3
