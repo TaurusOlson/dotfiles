@@ -23,16 +23,6 @@ ppush () { eval "${2:-PATH}='$(eval echo \$${2:-PATH})':$1"; }
 # Usage: gitzip
 gitzip() { git archive -o $(basename $PWD).zip HEAD }
 
-# Usage: source_if_exists <filename>
-source_if_exists() {
-    if [[ -f $1 ]]; then
-        source $1
-    else
-        echo -e "\e[31mWARNING:\e[0m Can't find the file $1 to source it."
-    fi
-}
-
-
 enable_vrack() {
     sudo ipsec start
     sleep 2
@@ -45,3 +35,14 @@ disable_vrack() {
 }
 
 ttyn() { tty | awk -F"/" '{print $4}'; }
+
+# Usage: source_if_exists <filename>
+source_if_exists() {
+    if [[ -f $1 ]]; then
+        source $1
+    else
+        echo -e "\e[31mWARNING:\e[0m Can't find the file $1 to source it."
+    fi
+}
+
+
