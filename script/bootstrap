@@ -146,6 +146,7 @@ info "installing dependencies..."
 if source bin/dotty > /tmp/dotfiles-dot 2>&1
 then
   success "dependencies installed"
+  success "files loaded"
 else
   fail "error installing dependencies"
 fi
