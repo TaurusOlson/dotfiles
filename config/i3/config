@@ -12,28 +12,36 @@
 set $mod Mod4
 
 # assign workspace variables
-set $WS1 "1:dev "
-set $WS2 "2:web "
-set $WS3 "3:org "
-set $WS4 "4:com "
-set $WS5 "5:doc "
-set $WS6 "6:mus "
-set $WS7 "7:mai "
-set $WS8 "8"
-set $WS9 "9"
-set $WS10 "10"
+# set $WS1 "1:dev "
+# set $WS2 "2:web "
+# set $WS3 "3:org "
+# set $WS4 "4:com "
+# set $WS5 "5:doc "
+# set $WS6 "6:mus "
+# set $WS7 "7:mai "
+set $WS_DEV "1:dev"
+set $WS_TER "2:ter"
+set $WS_WEB "3:web"
+set $WS_ORG "4:org"
+set $WS_COM "5:com"
+set $WS_DOC "6:doc"
+set $WS_MUS "7:mus"
+set $WS_MAI "8:mai"
+set $WS_NAV "9:nav"
+set $WS_OPS "10:ops"
 
 # Workspaces and monitors
-workspace $WS1 output eDP1
-workspace $WS2 output HDMI1
-workspace $WS3 output HDMI2
-workspace $WS4 output HDMI2
-workspace $WS5 output HDMI1
-workspace $WS6 output HDMI2
-workspace $WS7 output HDMI2
-workspace $WS8 output HDMI2
-workspace $WS9 output HDMI2
-workspace $WS10 output HDMI2
+workspace $WS_DEV output eDP1
+workspace $WS_TER output eDP1
+workspace $WS_WEB output HDMI1
+workspace $WS_ORG output HDMI1
+workspace $WS_COM output HDMI2
+workspace $WS_DOC output eDP1
+workspace $WS_MUS output HDMI2
+workspace $WS_MAI output HDMI2
+workspace $WS_NAV output HDMI2
+workspace $WS_OPS output HDMI2
+workspace $WS_VOI output HDMI2
 
 
 # Workspace layout
@@ -41,17 +49,20 @@ workspace_layout tabbed
 
 
 # Assign applications to workspaces
-assign [class="^Gvim$"] $WS1
-assign [class="^Firefox$"] $WS2
-assign [class="^Emacs$"] $WS3
-assign [class="^Slack$"] $WS4
-assign [class="^Evince$"] $WS5
-# assign [class="^URxvt$" instance="^ncmpcpp$"] $WS6
+assign [class="^Gvim$"] $WS_DEV
+# assign [class="^URxvt$"] $WS_TER
+assign [class="^Emacs$"] $WS_ORG
+assign [class="^Firefox$"] $WS_WEB
+assign [class="^Slack$"] $WS_COM
+assign [class="^Evince$"] $WS_DOC
+assign [class="^Nautilus$"] $WS_NAV
+assign [class="^R_x11"] $WS_NAV
 # assign [class="^URxvt$" instance="^mutt$"] $WS7
 
 
 # Look
-new_window pixel 3
+new_window pixel 2
+hide_edge_borders both
 
 # # Gintage
 # set $dark_green #408075
@@ -102,7 +113,8 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+w kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'DejaVu Sans Mono-15' -nf "$light_blue" -nb "$background" -sb "$dark_blue"
+# bindsym $mod+d exec dmenu_run -fn 'DejaVu Sans Mono-15' -nf "$light_blue" -nb "$background" -sb "$dark_blue"
+bindsym $mod+d exec rofi -eh 2 -lines 4 -padding 20 -opacity 85 -font 'FiraCode Medium 17' -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -121,17 +133,18 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+Ctrl+h split v
+bindsym $mod+s split v
 
 # split in vertical orientation
-bindsym $mod+Ctrl+v split h
+bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+bindsym $mod+g fullscreen global
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
+bindsym $mod+z layout stacking
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -146,29 +159,52 @@ bindsym $mod+p focus parent
 # focus the child container
 bindsym $mod+c focus child
 
+# QWERTY
 # switch to workspace
-bindsym $mod+ampersand workspace $WS1
-bindsym $mod+eacute workspace $WS2
-bindsym $mod+quotedbl workspace $WS3
-bindsym $mod+apostrophe workspace $WS4
-bindsym $mod+parenleft workspace $WS5
-bindsym $mod+minus workspace $WS6
-bindsym $mod+egrave workspace $WS7
-bindsym $mod+underscore workspace $WS8
-bindsym $mod+ccedilla workspace $WS9
-bindsym $mod+agrave workspace $WS10
+bindsym $mod+1 workspace $WS_DEV
+bindsym $mod+2 workspace $WS_TER
+bindsym $mod+3 workspace $WS_WEB
+bindsym $mod+4 workspace $WS_ORG
+bindsym $mod+5 workspace $WS_COM
+bindsym $mod+6 workspace $WS_DOC
+bindsym $mod+7 workspace $WS_MUS
+bindsym $mod+8 workspace $WS_MAI
+bindsym $mod+9 workspace $WS_NAV
 
 # move focused container to workspace
-bindsym $mod+Shift+ampersand move container to workspace $WS1
-bindsym $mod+Shift+eacute move container to workspace $WS2
-bindsym $mod+Shift+quotedbl move container to workspace $WS3
-bindsym $mod+Shift+apostrophe move container to workspace $WS4
-bindsym $mod+Shift+5 move container to workspace $WS5
-bindsym $mod+Shift+minus move container to workspace $WS6
-bindsym $mod+Shift+egrave move container to workspace $WS7
-bindsym $mod+Shift+underscore move container to workspace $WS8
-bindsym $mod+Shift+ccedilla move container to workspace $WS9
-bindsym $mod+Shift+agrave move container to workspace $WS10
+bindsym $mod+Shift+1 move container to workspace $WS_DEV
+bindsym $mod+Shift+2 move container to workspace $WS_TER
+bindsym $mod+Shift+3 move container to workspace $WS_WEB
+bindsym $mod+Shift+4 move container to workspace $WS_ORG
+bindsym $mod+Shift+5 move container to workspace $WS_COM
+bindsym $mod+Shift+6 move container to workspace $WS_DOC
+bindsym $mod+Shift+7 move container to workspace $WS_MUS
+bindsym $mod+Shift+8 move container to workspace $WS_MAI
+bindsym $mod+Shift+9 move container to workspace $WS_NAV
+
+
+# # AZERTY
+# # switch to workspace
+# bindsym $mod+ampersand workspace $WS_DEV
+# bindsym $mod+eacute workspace $WS_TER
+# bindsym $mod+quotedbl workspace $WS_WEB
+# bindsym $mod+apostrophe workspace $WS_ORG
+# bindsym $mod+parenleft workspace $WS_COM
+# bindsym $mod+minus workspace $WS_DOC
+# bindsym $mod+egrave workspace $WS_MUS
+# bindsym $mod+underscore workspace $WS_MAI
+# bindsym $mod+ccedilla workspace $WS_NAV
+
+# # move focused container to workspace
+# bindsym $mod+Shift+ampersand move container to workspace $WS_DEV
+# bindsym $mod+Shift+eacute move container to workspace $WS_TER
+# bindsym $mod+Shift+quotedbl move container to workspace $WS_WEB
+# bindsym $mod+Shift+apostrophe move container to workspace $WS_ORG
+# bindsym $mod+Shift+parenleft move container to workspace $WS_COM
+# bindsym $mod+Shift+minus move container to workspace $WS_DOC
+# bindsym $mod+Shift+egrave move container to workspace $WS_MUS
+# bindsym $mod+Shift+underscore move container to workspace $WS_MAI
+# bindsym $mod+Shift+ccedilla move container to workspace $WS_NAV
 
 # move workspace to monitor
 bindsym $mod+m move workspace to output right
@@ -182,7 +218,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
-bindsym $mod+x exec i3lock -c 181512 -i '/home/damien/Images/black_sea.png' -t
+bindsym $mod+x exec i3lock -c 181512 -i '/home/damien/Images/shore2-oliver-hen-pritchard-barrett.png' -t
 
 # Pulse Audio controls
 bindcode 96 exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -206,6 +242,7 @@ bar {
         }
 
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        tray_output primary
 }
 
 # MODES
@@ -219,7 +256,13 @@ mode "$mode_window_splitter" {
     bindsym h split v
     bindsym c exec urxvt
     bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
+
+bindsym $mod+ctrl+h resize shrink width 1 px or 1 ppt
+bindsym $mod+ctrl+k resize grow height 1 px or 1 ppt
+bindsym $mod+ctrl+l resize grow width 1 px or 1 ppt
+bindsym $mod+ctrl+j resize shrink height 1 px or 1 ppt
 
 # Resize
 # resize window (you can also use the mouse for that)
@@ -231,10 +274,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
-        bindsym h resize shrink height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
