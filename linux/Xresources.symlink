@@ -18,7 +18,7 @@ Xft.rgba: rgb
 
 ! UI
 URxvt*termName:                 rxvt-256color
-URxvt*font:                     xft:FiraCode:size=12
+URxvt*font:                     xft:FiraCode:size=13
 URxvt.depth:                    32
 URxvt*lineSpace:                1
 URxvt.letterSpace:              0
