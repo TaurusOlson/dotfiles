@@ -1,0 +1,105 @@
+#compdef legit
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for legit (https://github.com/kennethreitz/legit).
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Ryan James (https://github.com/autoplectic)
+#
+# ------------------------------------------------------------------------------
+
+
+_legit ()
+{
+        local curcontext="$curcontext" state line
+        typeset -A opt_args
+
+        _arguments -C \
+                '1:command:->command' \
+                '*::options:->options'
+
+        local -a subcommands
+        subcommands=(
+                'settings: Display and edit the current Legit settings.'
+                'branches: Get a nice pretty list of available branches.'
+                'sync: Synchronizes the given branch. Defaults to current branch. Stash, Fetch, Auto-Merge/Rebase, Push, and Unstash. You can only sync published branches.'
+                'resync: Re-synchronize current branch with specified upstream branch.'
+                'switch: Switches to specified branch. Defaults to current branch. Automatically stashes and unstashes any changes.'
+                'sprout: Creates a new branch off of the specified branch. Switches to it immediately.'
+                'graft: Merges specified branch into the second branch, and removes it. You can only graft unpublished branches.'
+                'publish: Publishes specified branch to the remote.'
+                'unpublish: Removes specified branch from the remote.'
+                'harvest: Syncs a branch with a given branch. Defaults to current.'
+                'help: Displays help for legit command.'
+        )
+
+        case $state in
+                (command)
+                        _describe -t commands 'legit' subcommands
+                ;;
+
+                (options)
+                        case $line[1] in
+                                (settings|branches)
+                                ;;
+                                (sy|sync|sw|switch|pub|publish|unp|unpublish|rs|resync)
+                                        _arguments \
+                                                ':branch:__git_branch_names'
+                                ;;
+                                (sp|sprout)
+                                        _arguments \
+                                                '1:branch:__git_branch_names' \
+                                                '2:new-branch'
+                                ;;
+                                (gr|graft)
+                                        _arguments \
+                                                '1:branch:__git_branch_names' \
+                                                '2:into-branch:__git_branch_names'
+                                ;;
+                                (ha|hv|har|harvest)
+                                        _arguments \
+                                                '1:from-branch:__git_branch_names' \
+                                                '2:to-branch:__git_branch_names'
+                                ;;
+                                (help)
+                                        _describe -t commands 'legit' subcommands
+                                ;;
+                        esac
+        esac
+}
+
+
+# Helper functions copied from Completion/Unix/Command/_git (a2098b0) {{{
+# The approach to trigger the load of _git completion did not work (recursion, ...):
+# https://dev.0x50.de/projects/ftzsh/repository/revisions/master/entry/functions/_ta#L17
+(( $+functions[__git_branch_names] )) ||
+__git_branch_names () {
+  local expl
+  declare -a branch_names
+
+  branch_names=(${${(f)"$(_call_program branchrefs git for-each-ref --format='"%(refname)"' refs/heads 2>/dev/null)"}#refs/heads/})
+  __git_command_successful $pipestatus || return 1
+
+  _wanted branch-names expl branch-name compadd $* - $branch_names
+}
+
+(( $+functions[__git_command_successful] )) ||
+__git_command_successful () {
+  if (( ${#*:#0} > 0 )); then
+    _message 'not a git repository'
+    return 1
+  fi
+  return 0
+}
+# }}}
+
+_legit
+
+
+# -*- mode: zsh; -*-
+# vim: ft=zsh sw=8 ts=8 et
