@@ -1,6 +1,6 @@
-if [ -d $PROG/$1 ]; then
-    cd $PROG/$1; 
-elif [ -f $PROG/$1 ]; then
-    vim $PROG/$1; 
+if [ -d $WORK/$1 ]; then
+    cd $WORK/$1; 
+elif [ -f $WORK/$1 ]; then
+    vim $WORK/$1; 
 fi;
 

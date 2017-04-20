@@ -1,2 +1,2 @@
 #compdef x
-_files -W $PROG -/
+_files -W $WORK -/
