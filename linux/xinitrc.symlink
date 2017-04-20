@@ -2,10 +2,16 @@ pulseaudio --start &
 start-pulseaudio-x11 &
 setxkbmap -option ctrl:nocaps &
 xrdb ~/.Xresources &
-feh --bg-fill ~/Images/mountain2-tj-holowaychuk.png &
-xautolock -time 5 -locker "/usr/bin/i3lock -c 181512 -i '/home/damien/Images/shore2-oliver-hen-pritchard-barrett.png' -t" &
+feh --bg-fill ~/Images/Pablo%20Garcia%20Saldana.jpg &
+# xautolock -time 5 -locker "/usr/bin/i3lock -c 181512 -i '/home/damien/Images/shore2-oliver-hen-pritchard-barrett.png' -t" &
+export THEME="arcwave"
+# source $HOME/bin/export_colors $THEME
 redshift &
-mpd &
+# mpd &
 dunst &
+compton &
 dropbox start &
-exec i3
+# exec herbstluftwm --locked
+# exec i3
+exec bspwm
+

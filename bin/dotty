@@ -19,6 +19,10 @@ elif [ $(uname) = "Linux" ]; then
     sudo apt-get update
 fi
 
-# Install homebrew packages
+# Install packages
 echo "› $ZSH/script/install"
 $ZSH/script/install
+
+# Load files
+echo "› $ZSH/script/load"
+$ZSH/script/load

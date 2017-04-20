@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Load some files
+
+if [[ $(uname -s) = "Linux" ]]; then
+    # Load the fonts
+    echo "fonts..."
+    fc-cache -s
+
+    # Xresources
+    echo "Xresources..."
+    xrdb ~/.Xresources
+fi
