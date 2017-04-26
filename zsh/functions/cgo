@@ -1,0 +1,6 @@
+if [ -d $GOPATH/src/$1 ]; then
+    cd $GOPATH/src/$1; 
+elif [ -f $GOPATH/src/$1 ]; then
+    vim $GOPATH/src/$1; 
+fi;
+

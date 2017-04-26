@@ -1,0 +1,3 @@
+#compdef cgo
+_files -W $GOPATH/src -/
+
