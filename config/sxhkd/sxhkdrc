@@ -1,4 +1,4 @@
-#
+
 # wm independent hotkeys
 #
 
@@ -6,22 +6,39 @@
 super + shift + r
         pkill -x polybar; $HOME/.config/bspwm/bspwmrc
 
+# reload tint2
+super + ctrl + Return
+        killall -SIGUSR1 tint2
+
 # terminal emulator
 super + Return
 	urxvt
 
 # program launcher
-super + space
-	dmenu_run
+# super + space
+# 	dmenu_run
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
 
+# Rotate
+super + r
+    bspc node @/ --rotate 90
+
+
+# Circulate the leaves of the tree of the focused desktop
+super + n
+    bspc node @/ --circulate forward
+
+
 # Rofi
 super + d
-        rofi -eh 2 -lines 4 -lines 10 -padding 20 -font 'FiraCode Medium 15' -opacity 85 -show run
+        rofi -eh 1 -width 30 -lines 4 -padding 10 -font 'FiraCode Medium 15' -opacity 85 -bw 3 -show run
+
+super + z
+        rofi -eh 1 -width 30 -lines 4 -padding 10 -font 'FiraCode Medium 15' -opacity 85 -bw 3 -show window
 
 #
 # bspwm hotkeys
@@ -52,8 +69,20 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + t,f}
+	bspc node -t {tiled,pseudo_tiled,fullscreen}
+
+# toggle between floating and tiled
+super + s
+    bspc node -t "~"{floating,tiled}
+
+# Show everything on the desktop
+super + space
+    xdo show -d
+
+# Hide everything on the desktop except the current node
+super + shift + space
+    xdo hide -dr
 
 # set the node flags
 super + ctrl + {x,y,z}
@@ -128,3 +157,26 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+# Mute
+F10
+        amixer set Master toggle
+
+# Decrease volume
+F11
+        amixer set Master 5%-
+
+# Increase volume
+F12
+        amixer set Master 5%+
+
+
+# screen saver
+super + x
+        /usr/bin/i3lock -c 181512 -i '/home/damien/Images/wallpapers/francisco-moreno-157438.png' -t &
+
+
+# suspend
+super + shift + x
+        systemctl suspend

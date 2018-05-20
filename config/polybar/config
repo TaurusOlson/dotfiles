@@ -1,261 +1,132 @@
 [global/wm]
-#margin-top = 8
-#margin-bottom = 8
-#margin-left = 8
-#margin-right = 8
+margin-top = 0
+margin-bottom = 1
+margin-left = 0
+margin-right = 0
+
+[module/pauline]
+type = custom/script
+exec = /home/damien/bin/terms.sh
+interval = 1
+label = %output%
 
 
 [colors]
-;orange = #FF6200
-;orange = #d65d0e
 darkgray = ${xrdb:color8}
 orange = ${xrdb:color9}
 white = #ebdbb2
-gray = #585858
-black = #090909
-red = #c795ae
-blue = #95aec7
-yellow = #c7ae95
-green = #aec795
-#background = #1f222d
+cyan = ${xrdb:color6}
+blue = ${xrdb:color12}
+yellow = ${xrdb:color3}
+green = ${xrdb:color2}
 background = ${xrdb:background}
 background-alt = #4e4e4e
-#foreground = #dfdfdf
 foreground = ${xrdb:foreground}
 foreground-alt = #4e4e4e
-primary = #1f222d
-secondary = #FF6200
 alert = #fb4934
 
 [bar/bar]
 monitor = HDMI-0
-bottom = false
-wm-restack = bspwm
-width = 100%
-height = 26
-; offset-x = 11
-offset-y = 11
-
-locale = en_US.UTF-8
-
-enable-ipc = true
-
 padding-left = 0
 padding-right = 0
+bottom = true
+wm-restack = bspwm
+height = 40
+locale = en_US.UTF-8
+enable-ipc = true
+border-size = 0
 
-module-margin-right = 0
-module-margin-left = 0
-
-modules-center = date
-# modules-center = mpd 
-modules-left = bspwm
+modules-left = cmus
+modules-center = bspwm pauline
+modules-right = volume date
 
 background = ${colors.background}
 foreground = ${colors.foreground}
-
-underline-size = 0
-underline-color = ${colors.white}
+underline-size = 3
 
 tray-detached = false
-tray-position = left
+tray-position = right
 tray-offset-x = 0
 tray-offset-y = 0
-tray-maxsize = 16
+tray-maxsize = 32
 tray-padding = 0
 tray-transparent = false
 tray-scale = 1.0
 
-font-0 = "monospace:size=10;2"
-font-1 = "FontAwesome:size=10;2"
+font-0 = Iosevka Term:size=14
+font-1 = FontAwesome:size=14
+
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+reverse-scroll = false
+format = <label-state> <label-mode>
+
+ws-icon-0 = dev;
+ws-icon-1 = ter;
+ws-icon-2 = web;
+ws-icon-3 = org;
+ws-icon-4 = mus;
+ws-icon-5 = doc;
+ws-icon-default = D
+
+label-focused = %name%
+label-focused-foreground = ${colors.yellow}
+label-focused-background = ${colors.background}
+label-focused-underline = ${colors.green}
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-foreground = ${colors.darkgray}
+label-occupied-padding = 1
+
+label-urgent = %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+label-monocle = [M]
+label-tiled = [T]
+label-fullscreen = [F]
+label-pseudotiled = [P]
+label-locked = [L]
+label-sticky = [S]
+label-floating = [f]
+
+
+[module/date]
+type = internal/date
+date =  %Y-%m-%d %H:%M
+interval = sticky5
+format-padding = 4
+
+
+[module/title]
+type = internal/xwindow
+format-padding = 2
+label =  %title%
+label-maxlen = 40
+format-foreground = ${colors.darkgray}
 
 
 [module/mpd]
 type = internal/mpd
 host = 127.0.0.1
 port = 6600
-format-online =<icon-prev><label-song><icon-next>
-format-online-underline = ${colors.white}
-format-online-padding = 1
-
-#label-song-font = 4
-label-song = %{A1:mpc toggle:}%artist% - %title%%{A}
-icon-play = 
-icon-pause = 
-icon-prev = 
-icon-next = 
-
-icon-prev-foreground = ${colors.darkgray} 
-icon-next-foreground = ${colors.darkgray}
-
-icon-play-padding = 1
-icon-pause-padding = 1
-icon-prev-padding = 1
-icon-next-padding = 1
-label-song-padding = 1
-
-[module/bspwm]
-type = internal/bspwm
-format = <label-state> <label-mode>
-
-label-focused = %icon%
-;label-focused-font = 1
-label-focused-background = ${colors.background-alt}
-;label-focused-underline= ${colors.primary}
-label-focused-underline= ${colors.white}
-label-focused-padding = 2
-
-label-occupied = %icon%
-label-occupied-foreground = ${colors.darkgray}
-label-occupied-padding = 2
-
-label-urgent = %icon%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %icon%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-default = X
+label-song =  %title%
 
 
-[module/date]
-type = internal/date
-#date-alt =   %A %H:%M 
-date = %{F#928374}%{F-} %H:%M
-interval = 5
-format-underline = ${colors.white}
-;format-background = ${colors.black}
-format-foreground = ${colors.foreground}
-format-padding = 2
+[module/cmus]
+type = custom/script
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
+interval = 1
+click-left = cmus-remote --pause
+click-right = cmus-remote --stop
 
-label-separator = |
-
-[module/volume]
-type = internal/volume
-
-format-volume = <label-volume> 
-format-volume-padding = 2
-
-format-volume-underline = ${colors.white}
-
-label-volume = %{F#928374} %{F-}%percentage:3%%
-#label-volume-foreground = ${color.white}
-
-label-muted =%{F#928374} %{F-}mute
-format-muted = <label-muted>
-format-muted-underline = ${colors.white}
-format-muted-padding = 2
-#label-muted-foreground = ${colors.gray}
-
-format-padding = 2
-
-[module/keyboard]
-type = internal/xkeyboard
-
-; Available tags:
-;   <label-layout> (default)
-;   <label-indicator> (default)
-format = %{A1:~/.bin/toggkbl:}%{F#928374} %{F-}<label-layout> <label-indicator>%{A}
-format-spacing = 0
-format-underline = ${colors.white}
-
-; Available tokens:
-;   %layout%
-;   %name%
-;   %number%
-; Default: %layout%
-label-layout = %layout%
-format-padding = 2
-
-; Available tokens:
-;   %name%
-; Default: %name%
-label-indicator = %name%
-label-indicator-padding = 0
-
-[module/network]
-type = internal/network
-interface = wlp3s0
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 3.0
-
-; Test connectivity every Nth update
-; A value of 0 disables the feature
-; NOTE: Experimental (needs more testing)
-; Default: 0
-;ping-interval = 3
-
-; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
-; Minimum output width of upload/download rate
-; Default: 3
-
-; Accumulate values from all interfaces
-; when querying for up/downspeed rate
-; Default: false
-accumulate-stats = true
-
-format-connected-padding = 2
-format-disconnected-padding = 2
-format-connected-underline = ${colors.white}
-format-disconnected-underline = ${colors.white}
-
-; Available tags:
-;   <label-connected> (default)
-;   <ramp-signal>
-format-connected = %{F#928374} %{F-}<label-connected> 
-
-; Available tags:
-;   <label-disconnected> (default)
-format-disconnected = <label-disconnected>
-
-; Available tags:
-;   <label-connected> (default)
-;   <label-packetloss>
-;   <animation-packetloss>
-format-packetloss = <animation-packetloss> <label-connected>
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %upspeed%   [wireless+wired]
-;   %downspeed% [wireless+wired]
-;   %linkspeed% [wired]
-; Default: %ifname% %local_ip%
-label-connected = %signal:3%%
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-; Default: (none)
-label-disconnected = %{F#928374} %{F-}none
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %linkspeed% [wired]
-; Default: (none)
-;label-packetloss = %essid%
-;label-packetloss-foreground = #eefafafa
-
-; Only applies if <animation-packetloss> is used
-animation-packetloss-0 = ⚠
-animation-packetloss-1 = 📶
-; Framerate in milliseconds
-animation-packetloss-framerate = 500
-
-[module/separator]
-type = custom/text
-content = |
-content-foreground = #4e4e4e
 
 ; vim:ft=dosini
