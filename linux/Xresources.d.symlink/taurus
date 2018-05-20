@@ -1,0 +1,32 @@
+! ---------------------------------------------------------------------------
+!       taurus colors {{{1
+! ---------------------------------------------------------------------------
+
+!black
+*color0:     #262729
+*color8:     #554444
+!red
+! *color1:    #F92672 !Original
+*color1:    #E74D33
+*color9:    #F92672
+!green
+*color2:    #A6E22E
+*color10:   #B2E87D
+!yellow
+*color3:    #FFC123
+*color11:   #EDFF44
+!blue
+*color4:    #66D9EF
+*color12:   #66D9EF
+!magenta
+! *color5:    #9E6FFE
+*color5:    #DA679E
+*color13:   #F115AC
+!cyan
+*color6:    #5E7175
+*color14:   #A3BABF
+!white
+*color7:    #CCCCC6
+*color15:   #F8F8F2
+
+! vim: ft=xdefaults:

@@ -1,0 +1,39 @@
+! Background
+#define bg #282828
+/* #define bg #1d2021 */
+
+! Foreground
+#define fg #ebdbb2
+/* #define fg #32302f */
+
+! Black + DarkGrey
+/* #define blk #282828 */
+#define blk #928374
+
+! DarkRed + Red
+/* #define red #cc241d */
+#define red #fb4934
+
+! DarkGreen + Green
+/* #define grn  #98971a */
+#define grn #b8bb26
+
+! DarkYellow + Yellow
+/* #define ylw #d79921 */
+#define ylw #fabd2f
+
+! DarkBlue + Blue
+/* #define blu #458588 */
+#define blu #83a598
+
+! DarkMagenta + Magenta
+#define mag  #b16286
+/* #define mag #d3869b */
+
+! DarkCyan + Cyan
+/* #define cyn #689d6a */
+#define cyn #8ec07c
+
+! LightGrey + White
+/* #define wht  #a89984 */
+#define wht #ebdbb2

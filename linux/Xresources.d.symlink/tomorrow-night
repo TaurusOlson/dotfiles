@@ -1,0 +1,16 @@
+#define bg #1d1f21
+#define blk #282a2e
+#define bblk #373b41
+#define gre0 #969896
+#define gre1 #b4b7b4
+#define gre2 #c5c8c6
+#define fg #e0e0e0
+#define gre3 #ffffff
+#define red #cc6666
+#define ora #de935f
+#define ylw #f0c674
+#define grn #b5bd68
+#define cyn #8abeb7
+#define blu #81a2be
+#define bblu #b294bb
+#define bred #a3685a
