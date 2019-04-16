@@ -1,5 +1,0 @@
-if [ -d $PROG/sandbox/$1 ]; then
-    cd $PROG/sandbox/$1; 
-elif [ -f $PROG/sandbox/$1 ]; then
-    vim $PROG/sandbox/$1; 
-fi;

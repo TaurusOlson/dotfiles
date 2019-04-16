@@ -1,6 +1,0 @@
-if [ -d $WORK/$1 ]; then
-    cd $WORK/$1; 
-elif [ -f $WORK/$1 ]; then
-    vim $WORK/$1; 
-fi;
-
