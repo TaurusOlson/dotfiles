@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# --- Novus Ordo Seclorum ---
+
+function usage() {
+    cat <<EOF
+$(basename $0): Encrypt/Decrypt a file
+
+Usage:
+    $(basename $0) <option> <file>
+
+Available options:
+    -e|--encrypt: encryption
+    -d|--decrypt: decryption
+    -h|--help
+EOF
+}
+
+function die() {
+    echo "Error: ${@}"
+    exit 1
+}
+
+[ $# -ne 2 ] && usage && exit 0
+[ ! -f $2 ] && die "$2 should be a file."
+
+case $1 in
+    -e|--encrypt)
+        gpg -c $2 && shred $2 && rm $2 && echo "Encrypted $2"
+        ;;
+    -d|--decrypt)
+        gpg -d $2
+        ;;
+    -h|--help|*)
+        usage
+        ;;
+esac
